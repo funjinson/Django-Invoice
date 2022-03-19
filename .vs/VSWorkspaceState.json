@@ -1,0 +1,10 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\invoice",
+    "\\invoice\\templates",
+    "\\invoice\\templates\\invoice"
+  ],
+  "SelectedNode": "\\invoice\\views.py",
+  "PreviewInSolutionExplorer": false
+}

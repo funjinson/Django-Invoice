@@ -8,10 +8,10 @@ class CreateInvoiceViewTest(TestCase):
     def test_full_form(self):
         data =  {
             'customer':'Xyz Company',
-            'customer_email':'customer@company.com',
-            'billing_address':'C-7, mg road 25',
+            'billtitle':'customer@company.com',
+            #'billing_address':'C-7, mg road 25',
             'date':'2020-07-21',
-            'due_date':'2020-08-10',
+            'service_type':'2020-08-10',
             'message':'some default message',
             'form-TOTAL_FORMS': '2',
             'form-INITIAL_FORMS': '0',

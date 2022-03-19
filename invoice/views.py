@@ -48,10 +48,13 @@ def createInvoice(request):
         
         if form.is_valid():
             invoice = Invoice.objects.create(customer=form.data["customer"],
-                    customer_email=form.data["customer_email"],
-                    billing_address = form.data["billing_address"],
+                    bill_title=form.data["bill_title"],
+                    gst=form.data["cars"],
+                    termsandconditions=form.data["termsandconditions"],
+                    fulldescription=form.data["fulldescription"],
+                    #billing_address = form.data["billing_address"],
                     date=form.data["date"],
-                    due_date=form.data["due_date"], 
+                    service_type=form.data["service_type"], 
                     message=form.data["message"],
                     )
             # invoice.save()
@@ -65,8 +68,10 @@ def createInvoice(request):
                 description = form.cleaned_data.get('description')
                 quantity = form.cleaned_data.get('quantity')
                 rate = form.cleaned_data.get('rate')
+               
                 if service and description and quantity and rate:
                     amount = float(rate)*float(quantity)
+                    
                     total += amount
                     LineItem(customer=invoice,
                             service=service,
@@ -89,26 +94,32 @@ def createInvoice(request):
     return render(request, 'invoice/invoice-create.html', context)
 
 
+
+
 def view_PDF(request, id=None):
     invoice = get_object_or_404(Invoice, id=id)
     lineitem = invoice.lineitem_set.all()
 
     context = {
         "company": {
-            "name": "Ibrahim Services",
-            "address" :"67542 Jeru, Chatsworth, CA 92145, US",
-            "phone": "(818) XXX XXXX",
-            "email": "contact@ibrahimservice.com",
+            "name": "APRO IT Solutions",
+            "address" :"Chalakudy ,Thrissur , Kerala , India - 680307",
+            "phone": "+91 9746344984",
+            "email": "info@aproitsolutions.com",
         },
         "invoice_id": invoice.id,
+        "invoice_gst": invoice.gst,
         "invoice_total": invoice.total_amount,
         "customer": invoice.customer,
-        "customer_email": invoice.customer_email,
+        "bill_title": invoice.bill_title,
+        "fulldescription":invoice.fulldescription,
+        "termsandconditions":invoice.termsandconditions,
         "date": invoice.date,
-        "due_date": invoice.due_date,
-        "billing_address": invoice.billing_address,
+        "service_type": invoice.service_type,
+        #"billing_address": invoice.billing_address,
         "message": invoice.message,
         "lineitem": lineitem,
+       
 
     }
     return render(request, 'invoice/pdf_template.html', context)

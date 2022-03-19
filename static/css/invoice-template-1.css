@@ -95,18 +95,19 @@ table {
 table th,
 table td {
   padding: 20px;
-  background: #EEEEEE;
-  text-align: center;
+  background: #FFFFFF;
+  text-align:center;
   border-bottom: 1px solid #FFFFFF;
 }
 
 table th {
   white-space: nowrap;        
   font-weight: normal;
+  background-color: #103050;
 }
 
 table td {
-  text-align: right;
+  text-align: left;
 }
 
 table td h3{
@@ -121,6 +122,7 @@ table .no {
   font-size: 1.6em;
   background: #57B223;
 }
+
 
 table .desc {
   text-align: left;
