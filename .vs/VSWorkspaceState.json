@@ -1,10 +1,16 @@
 {
   "ExpandedNodes": [
     "",
+    "\\.idea",
+    "\\.idea\\inspectionProfiles",
     "\\invoice",
     "\\invoice\\templates",
-    "\\invoice\\templates\\invoice"
+    "\\invoice\\templates\\invoice",
+    "\\mysite",
+    "\\static",
+    "\\static\\css",
+    "\\static\\img"
   ],
-  "SelectedNode": "\\invoice\\views.py",
+  "SelectedNode": "\\invoice\\templates\\invoice\\pdf2.html",
   "PreviewInSolutionExplorer": false
 }
