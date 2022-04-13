@@ -20,10 +20,10 @@ FOOTER=[('https://svgshare.com/i/fkr.svg','Default')]
 class InvoiceForm1(forms.Form):
 
 
-    service = forms.ChoiceField(
-        label ='Select Service',
-        choices=CHOICES,
-        widget=forms.RadioSelect)
+    # service = forms.ChoiceField(
+    #     label ='Select Service',
+    #     choices=CHOICES,
+    #     widget=forms.RadioSelect)
 
     currency = forms.ChoiceField(
         label='Select Currency',
