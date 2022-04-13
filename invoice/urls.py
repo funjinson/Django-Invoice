@@ -35,5 +35,6 @@ urlpatterns = [
     path('update/updaterecord/<int:id>', updaterecord1, name='updaterecord'),
 
 
+
 ]
 

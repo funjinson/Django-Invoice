@@ -8,9 +8,12 @@ CHOICES=[('https://www.aprorigs.com/wp-content/uploads/2021/11/logo3.png','Apro 
          ('https://aproitsolutions.com/wp-content/uploads/2019/07/apro-logo-for-web-new-dark-1.png','Apro IT Solutions'),
          ('https://t4.ftcdn.net/jpg/04/40/92/73/360_F_440927381_ljaelLw3fiAaM7baJB4kqN6BHCguhJ0l.jpg','Apro CMS')]
 
-CURRENCY=[('₹','India'),
-          ('$','USA'),
-          ('د.إ','UAE')]
+CURRENCY=[('₹','INR'),
+          ('$','USD'),
+          ('د.إ','AED')]
+
+
+
 
 FOOTER=[('https://svgshare.com/i/fkr.svg','Default')]
 
@@ -55,10 +58,10 @@ class InvoiceForm1(forms.Form):
 
     )
     bill_title = forms.CharField(max_length=148,
-        label='Bill Title',
+        label='Estimate Description',
         widget=forms.TextInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Title of Bill',
+            'placeholder': 'Bill Description',
             'rows':1
         })
     )
@@ -82,6 +85,7 @@ class InvoiceForm1(forms.Form):
 
     fulldescription = forms.CharField(
         label='Additional Notes',
+        initial= f'* HiveOS is free for 1 rig, additional rigs $3 per month.\n* Brand Warranty does not cover riser cables, splitter cables and pcie hubs. \n* GST 18% applicapble on the final invoice depending on the client profile',
         widget=forms.Textarea(attrs={
             'class': 'form-control',
             'placeholder': 'Enter Additional Notes',
@@ -97,11 +101,16 @@ class InvoiceForm1(forms.Form):
         })
     )
     termsandconditions = forms.CharField(
+
         label='Terms and Conditions',
+        initial= f'• It is an example of estimated costs and does not reflect actual costs your company may accrue during the process.\n• Requires a 100% down payment upon the start of the build. \n• Estimate Validity - 7 days. ',
         widget=forms.Textarea(attrs={
+
             'class': 'form-control',
             'placeholder': 'Enter Terms and Conditions',
+
             'rows':2
+
         })
     )
 class InvoiceForm2(forms.Form):

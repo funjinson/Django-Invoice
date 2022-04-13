@@ -24,12 +24,12 @@ color: black;">Tax Estimate</h1> <br/>
                             {{form.customer|bulma}}
                         </div>
                         <div class="column is-one-third">
-                            {{form.bill_title|bulma}}
+                            {{form.service_type|bulma}}
                         </div>
                     </div>
                     <div class="columns is-centered">
                         <div class="column is-one-third">
-                            {{form.service_type|bulma}}
+                            {{form.bill_title|bulma}}
                         </div>
 
 
@@ -38,7 +38,7 @@ color: black;">Tax Estimate</h1> <br/>
                             <select name="gst" id="gst" class="form-control control input" onChange="update()">
 
                                 <option value="0.05">5%</option>
-                                <option value="0.12">12%</option>
+                                <option value="0.12" selected >12%</option>
                                 <option value="0.18">18%</option>
                                 <option value="0.28">28%</option>
                             </select>
@@ -111,8 +111,9 @@ color: black;">Tax Estimate</h1> <br/>
                     <div class="row spacer">
                         <div class="columns">
                             <div class="column">
-                                <h3 class="title is-4">Total Without GST:<span id="total"></span></h3>
-
+                                <h3 class="title is-4">Total Without GST: <span id="total"></span></h3>
+                                <h3 class="title is-4">Total With GST: <span id="total1"></span></h3>
+                                <h3 class="title is-4">Sub Total: <span id="total2"></span></h3>
 
                             </div>
                             <div class="column">
@@ -148,17 +149,18 @@ color: black;">Tax Estimate</h1> <br/>
 <script type="text/javascript">
 
 
-
     $('table input').on("input", function () {
         var total = []
         var $tr = $(this).closest('tr');
         var textValue1 = $("input.rate", $tr).val();
         var textValue2 = $('input.quantity', $tr).val();
         amt = textValue1 * textValue2;
-        console.log(amt);
+        //console.log(amt);
         $('.amount', $tr).html(amt);
         calc_total();
         calc_tax();
+
+
     });
 
     //total
@@ -166,16 +168,16 @@ color: black;">Tax Estimate</h1> <br/>
         var sum = 0;
         $(".amount").each(function () {
             sum += parseFloat($(this).text());
-            console.log(sum);
+
         });
        $('#total').text(sum);
+
+
     }
-
-
 
     //tax
     function calc_tax() {
-        $("#gst").on("change", function () {
+
             //Getting Value
             var selValue = $("#gst").val();
             //Setting Value
@@ -192,12 +194,18 @@ color: black;">Tax Estimate</h1> <br/>
             });
             $("#total1").text(taxa.toFixed(2));
 
-            //var bbb = taxa.toFixed(2);
-            //console.log(bbb);
-            
-            
-        });
+            var bbb = taxa.toFixed(2);
+
+            //const subtotal = +bbb + +('#total').text(sum);  ;
+
+            subtotal = bbb + sum;
+
+            //$("#total2").text(subtotal);
+
+console.log(a);
     }
+
+
 
   
 </script>

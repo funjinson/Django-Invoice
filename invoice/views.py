@@ -8,7 +8,7 @@ from django.views import View
 from .models import LineItem1, Invoice1, LineItem2, Invoice2
 from .forms import LineItemFormset1, InvoiceForm1, LineItemFormset2, InvoiceForm2
 from django.template import loader
-
+from django.contrib.auth.decorators import login_required
 
 
 import pdfkit
@@ -52,7 +52,7 @@ class InvoiceListView1(View):
      
 
         return redirect('invoice:invoice-list')
-
+@login_required
 def createInvoice1(request):
     """
     Invoice Generator page it will have Functionality to create new invoices, 
@@ -148,6 +148,9 @@ def createInvoice1(request):
         "form": form,
     }
     return render(request, 'invoice/invoice-create.html', context)
+
+
+@login_required
 def createInvoice2(request):
     """
     Invoice Generator page it will have Functionality to create new invoices,
@@ -277,7 +280,7 @@ def view_PDF2(request, id=None):
 def generate_PDF1(request, id):
 
     options = {
-    'page-size': 'a4',
+    'page-size': 'A4',
     'margin-top': '0.00in',
     'margin-right': '0.00in',
     'margin-bottom': '0.00in',
