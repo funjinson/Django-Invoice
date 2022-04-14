@@ -100,19 +100,35 @@ class InvoiceForm1(forms.Form):
             'rows':1
         })
     )
-    termsandconditions = forms.CharField(
-
+    termsandconditionsaprorigs = forms.CharField(
         label='Terms and Conditions',
-        initial= f'• It is an example of estimated costs and does not reflect actual costs your company may accrue during the process.\n• Requires a 100% down payment upon the start of the build. \n• Estimate Validity - 7 days. ',
+        initial= f'• Apro Rigs\n• Requires a 100% down payment upon the start of the build. \n• Estimate Validity - 7 days. ',
         widget=forms.Textarea(attrs={
+             'class': 'form-control',
+             'placeholder': 'Enter Terms and Conditions',
+             'rows':2
+         })
+     )
 
-            'class': 'form-control',
-            'placeholder': 'Enter Terms and Conditions',
+    termsandconditionsaproitsolutions = forms.CharField(
+        label='Terms and Conditions',
+        initial= f'• Apro IT Solutions\n• Requires a 100% down payment upon the start of the build. \n• Estimate Validity - 7 days. ',
+        widget=forms.Textarea(attrs={
+             'class': 'form-control',
+             'placeholder': 'Enter Terms and Conditions',
+             'rows':2
+         })
+     )
+    termsandconditionsaprocms = forms.CharField(
+        label='Terms and Conditions',
+        initial= f'• Apro CMS\n• Requires a 100% down payment upon the start of the build. \n• Estimate Validity - 7 days. ',
+        widget=forms.Textarea(attrs={
+             'class': 'form-control',
+             'placeholder': 'Enter Terms and Conditions',
+             'rows':2
+         })
+     )
 
-            'rows':2
-
-        })
-    )
 class InvoiceForm2(forms.Form):
 
 

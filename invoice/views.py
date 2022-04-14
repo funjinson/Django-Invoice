@@ -77,12 +77,17 @@ def createInvoice1(request):
         currencycountry = form.data["currency"]
         footerdefault = form.data["footer"]
 
+        terms1 = form.data["termsandconditionsaprorigs"]
+
+
+
+
 
         if form.is_valid():
             invoice1 = Invoice1.objects.create(customer=form.data["customer"],
                       bill_title = form.data["bill_title"],
                       gst = gstpercentageinfloat,
-                      termsandconditions = form.data["termsandconditions"],
+                      termsandconditions = terms1,
                       fulldescription = form.data["fulldescription"],
                       date=form.data["date"],
                       service_type=form.data["service_type"], 

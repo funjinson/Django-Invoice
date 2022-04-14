@@ -10,7 +10,31 @@
         <div class="card white-ter">
             <object data="{% static 'img/logo%20new.svg' %}" width="300" height="auto"> </object>
             <div class="hero-body">
-                <form class="" method="POST" action="">
+ <script>
+function show1(){
+  document.getElementById('div1a').style.display ='block';
+  document.getElementById('div1b').style.display ='none';
+  document.getElementById('div1c').style.display ='none';
+
+
+
+}
+function show2(){
+
+  document.getElementById('div1a').style.display ='none';
+  document.getElementById('div1b').style.display ='block';
+  document.getElementById('div1c').style.display ='none';
+
+}
+function show3(){
+  document.getElementById('div1a').style.display ='none';
+  document.getElementById('div1b').style.display = 'none';
+  document.getElementById('div1c').style.display = 'block';
+}
+
+
+ </script>
+                <form class="" method="POST" action="" >
                      <h1 style="text-align: center;
 font-size: 46px;
 color: black;">Tax Estimate</h1> <br/>
@@ -18,11 +42,11 @@ color: black;">Tax Estimate</h1> <br/>
                     <div class="columns is-centered">
                         <div class="column is-one-third">
                             <label class="label">Service Type:</label>
- <input type="radio" id="AproRigs" name="service" value="https://www.aprorigs.com/wp-content/uploads/2021/11/logo3.png" required>
+ <input type="radio" id="AproRigs" name="service" value="https://www.aprorigs.com/wp-content/uploads/2021/11/logo3.png"  onclick="show1();">
   <label  for="AproRigs">Apro Rigs</label><br>
-  <input type="radio" id="AproITSolutions" name="service" value="https://aproitsolutions.com/wp-content/uploads/2019/07/apro-logo-for-web-new-dark-1.png">
+  <input type="radio" id="AproITSolutions" name="service" value="https://aproitsolutions.com/wp-content/uploads/2019/07/apro-logo-for-web-new-dark-1.png" onclick="show2();">
   <label for="AproITSolutions">Apro IT Solutions</label><br>
-  <input type="radio" id="AproCMS" name="service" value="https://t4.ftcdn.net/jpg/04/40/92/73/360_F_440927381_ljaelLw3fiAaM7baJB4kqN6BHCguhJ0l.jpg">
+  <input type="radio" id="AproCMS" name="service" value="https://t4.ftcdn.net/jpg/04/40/92/73/360_F_440927381_ljaelLw3fiAaM7baJB4kqN6BHCguhJ0l.jpg" onclick="show3();">
   <label  for="AproCMS">Apro CMS</label>
 
 
@@ -59,9 +83,23 @@ color: black;">Tax Estimate</h1> <br/>
                         </div>
 
                     </div>
-                    <div class="columns is-centered">
+                    <div class="columns is-centered" >
                         <div class="column is-one-third">
-                             {{form.termsandconditions|bulma}}
+
+
+                            <div id="div1a">
+                                 {{form.termsandconditionsaprorigs|bulma}}
+                            </div>
+                             <div id="div1b">
+                                  {{form.termsandconditionsaproitsolutions|bulma}}
+                            </div>
+
+                            <div id="div1c">
+                                  {{form.termsandconditionsaprocms|bulma}}
+                            </div>
+
+
+
                         </div>
                         <div class="column is-one-third">
                            {{form.fulldescription|bulma}}
