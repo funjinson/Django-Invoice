@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.template.loader import get_template
 from django.http import HttpResponse
-from xhtml2pdf import pisa
+
 from django.contrib.auth import login
 from django.contrib import messages
 from django.views import View
