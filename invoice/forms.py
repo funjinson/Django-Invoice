@@ -83,15 +83,40 @@ class InvoiceForm1(forms.Form):
     #     })
     # )
 
-    fulldescription = forms.CharField(
+    fulldescriptionrigs = forms.CharField(
         label='Additional Notes',
-        initial= f'* HiveOS is free for 1 rig, additional rigs $3 per month.\n* Brand Warranty does not cover riser cables, splitter cables and pcie hubs. \n* GST 18% applicapble on the final invoice depending on the client profile',
+        initial= f'Apro Rigs.\n* HiveOS is free for 1 rig, additional rigs $3 per month.\n* Brand Warranty does not cover riser cables, splitter cables and pcie hubs. \n* GST 18% applicapble on the final invoice depending on the client profile',
         widget=forms.Textarea(attrs={
             'class': 'form-control',
             'placeholder': 'Enter Additional Notes',
             'rows':2
         })
     )
+    fulldescriptionit = forms.CharField(
+        label='Additional Notes',
+        initial=f'Apro IT Solutions.\n* HiveOS is free for 1 rig, additional rigs $3 per month.\n* Brand Warranty does not cover riser cables, splitter cables and pcie hubs. \n* GST 18% applicapble on the final invoice depending on the client profile',
+        widget=forms.Textarea(attrs={
+            'class': 'form-control',
+            'placeholder': 'Enter Additional Notes',
+            'rows': 2
+        })
+    )
+    fulldescriptioncms = forms.CharField(
+        label='Additional Notes',
+        initial=f'Apro CMS.\n* HiveOS is free for 1 rig, additional rigs $3 per month.\n* Brand Warranty does not cover riser cables, splitter cables and pcie hubs. \n* GST 18% applicapble on the final invoice depending on the client profile',
+        widget=forms.Textarea(attrs={
+            'class': 'form-control',
+            'placeholder': 'Enter Additional Notes',
+            'rows': 2
+        })
+    )
+
+
+
+
+
+
+
     service_type = forms.CharField(max_length=48,
         label='Service Type',
         widget=forms.TextInput(attrs={

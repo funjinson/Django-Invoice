@@ -16,6 +16,9 @@ function show1(){
   document.getElementById('div1b').style.display ='none';
   document.getElementById('div1c').style.display ='none';
 
+ document.getElementById('div2A').style.display ='block';
+ document.getElementById('div2B').style.display ='none';
+ document.getElementById('div2C').style.display ='none';
 
 
 }
@@ -25,11 +28,19 @@ function show2(){
   document.getElementById('div1b').style.display ='block';
   document.getElementById('div1c').style.display ='none';
 
+ document.getElementById('div2A').style.display ='none';
+ document.getElementById('div2B').style.display ='block';
+ document.getElementById('div2C').style.display ='none';
+
 }
 function show3(){
   document.getElementById('div1a').style.display ='none';
   document.getElementById('div1b').style.display = 'none';
   document.getElementById('div1c').style.display = 'block';
+
+ document.getElementById('div2A').style.display ='none';
+ document.getElementById('div2B').style.display ='none';
+ document.getElementById('div2C').style.display ='block';
 }
 
 
@@ -42,7 +53,7 @@ color: black;">Tax Estimate</h1> <br/>
                     <div class="columns is-centered">
                         <div class="column is-one-third">
                             <label class="label">Service Type:</label>
- <input type="radio" id="AproRigs" name="service" value="https://www.aprorigs.com/wp-content/uploads/2021/11/logo3.png"   onclick="show1();" selected>
+  <input type="radio" id="AproRigs" name="service" value="https://www.aprorigs.com/wp-content/uploads/2021/11/logo3.png"   onclick="show1();">
   <label  for="AproRigs">Apro Rigs</label><br>
   <input type="radio" id="AproITSolutions" name="service" value="https://aproitsolutions.com/wp-content/uploads/2019/07/apro-logo-for-web-new-dark-1.png" onclick="show2();">
   <label for="AproITSolutions">Apro IT Solutions</label><br>
@@ -102,7 +113,16 @@ color: black;">Tax Estimate</h1> <br/>
 
                         </div>
                         <div class="column is-one-third">
-                           {{form.fulldescription|bulma}}
+                             <div id="div2A">
+                                 {{form.fulldescriptionrigs|bulma}}
+                            </div>
+                            <div id="div2B">
+                                 {{form.fulldescriptionit|bulma}}
+                            </div>
+                            <div id="div2C">
+                                 {{form.fulldescriptioncms|bulma}}
+                            </div>
+
                         </div>
 
                         <div class="column is-one-third">
