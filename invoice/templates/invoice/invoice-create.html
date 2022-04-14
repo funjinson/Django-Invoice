@@ -8,9 +8,34 @@
 <section class="hero is-fullheight">
     <div class="container">
         <div class="card white-ter">
-            <object data="{% static 'img/logo%20new.svg' %}" width="300" height="auto"> </object>
+            <div style="text-align:center;"> <object data="{% static 'img/logo%20new.svg' %}" width="300" height="auto"> </object></div>
+ <div style="text-align:center;"><span id="clock"></span></div>
             <div class="hero-body">
+
+   <script type="text/javascript">
+    var clockElement = document.getElementById('clock');
+
+    function clock() {
+        clockElement.textContent = new Date().toString();
+    }
+
+    setInterval(clock, 1000);
+</script>
+
  <script>
+
+
+ function bodyloadfirst(){
+  document.getElementById('div1a').style.display ='block';
+  document.getElementById('div1b').style.display ='none';
+  document.getElementById('div1c').style.display ='none';
+
+ document.getElementById('div2A').style.display ='block';
+ document.getElementById('div2B').style.display ='none';
+ document.getElementById('div2C').style.display ='none';
+
+
+}
 function show1(){
   document.getElementById('div1a').style.display ='block';
   document.getElementById('div1b').style.display ='none';
@@ -53,18 +78,12 @@ color: black;">Tax Estimate</h1> <br/>
                     <div class="columns is-centered">
                         <div class="column is-one-third">
                             <label class="label">Service Type:</label>
-  <input type="radio" id="AproRigs" name="service" value="https://www.aprorigs.com/wp-content/uploads/2021/11/logo3.png"   onclick="show1();">
+  <input type="radio" checked id="AproRigs" name="service" value="https://www.aprorigs.com/wp-content/uploads/2021/11/logo3.png"   onclick="show1();">
   <label  for="AproRigs">Apro Rigs</label><br>
   <input type="radio" id="AproITSolutions" name="service" value="https://aproitsolutions.com/wp-content/uploads/2019/07/apro-logo-for-web-new-dark-1.png" onclick="show2();">
   <label for="AproITSolutions">Apro IT Solutions</label><br>
   <input type="radio" id="AproCMS" name="service" value="https://t4.ftcdn.net/jpg/04/40/92/73/360_F_440927381_ljaelLw3fiAaM7baJB4kqN6BHCguhJ0l.jpg" onclick="show3();">
   <label  for="AproCMS">Apro CMS</label>
-
-
-
-
-
-
                         </div>
                         <div class="column is-one-third">
                             {{form.customer|bulma}}
@@ -197,7 +216,7 @@ color: black;">Tax Estimate</h1> <br/>
                         <div class="row spacer">
                             <div class="col-4 offset-2">
                                 <button class="button is-rounded is-info">
-                                    <a href="{% url 'invoice:invoice-list' %}" class="has-text-white">View All Estimates</a>
+                                    <a href="{% url 'invoice:invoice-list' %}" class="has-text-white">View Tax Estimates</a>
                                 </button>
                             </div>
                         </div>
@@ -258,15 +277,15 @@ color: black;">Tax Estimate</h1> <br/>
             }
             var taxa = selValue;
             $(".amount").each(function () {
-                taxa *= parseFloat($(this).text());  
+                taxa = parseFloat($(this).text()) ;
+
             });
             $("#total1").text(taxa.toFixed(2));
 
-            var bbb = taxa.toFixed(2);
 
-            //const subtotal = +bbb + +('#total').text(sum);  ;
 
-            subtotal = bbb + sum;
+
+
 
 
 

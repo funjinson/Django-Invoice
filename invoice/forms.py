@@ -112,13 +112,8 @@ class InvoiceForm1(forms.Form):
     )
 
 
-
-
-
-
-
     service_type = forms.CharField(max_length=48,
-        label='Service Type',
+        label='Service Message',
         widget=forms.TextInput(attrs={
             'class': 'form-control',
             'placeholder': 'Apro Rigs - Mining Rigs',
@@ -220,16 +215,35 @@ class InvoiceForm2(forms.Form):
     #     })
     # )
 
-    fulldescription = forms.CharField(
-        label='Additional Notes',
-        initial= f'* HiveOS is free for 1 rig, additional rigs $3 per month.\n* Brand Warranty does not cover riser cables, splitter cables and pcie hubs. \n* GST 18% applicapble on the final invoice depending on the client profile',
 
+    fulldescriptionrigs = forms.CharField(
+        label='Additional Notes',
+        initial= f'Apro Rigs.\n* HiveOS is free for 1 rig, additional rigs $3 per month.\n* Brand Warranty does not cover riser cables, splitter cables and pcie hubs. \n* GST 18% applicapble on the final invoice depending on the client profile',
         widget=forms.Textarea(attrs={
             'class': 'form-control',
             'placeholder': 'Enter Additional Notes',
             'rows':2
         })
     )
+    fulldescriptionit = forms.CharField(
+        label='Additional Notes',
+        initial=f'Apro IT Solutions.\n* HiveOS is free for 1 rig, additional rigs $3 per month.\n* Brand Warranty does not cover riser cables, splitter cables and pcie hubs. \n* GST 18% applicapble on the final invoice depending on the client profile',
+        widget=forms.Textarea(attrs={
+            'class': 'form-control',
+            'placeholder': 'Enter Additional Notes',
+            'rows': 2
+        })
+    )
+    fulldescriptioncms = forms.CharField(
+        label='Additional Notes',
+        initial=f'Apro CMS.\n* HiveOS is free for 1 rig, additional rigs $3 per month.\n* Brand Warranty does not cover riser cables, splitter cables and pcie hubs. \n* GST 18% applicapble on the final invoice depending on the client profile',
+        widget=forms.Textarea(attrs={
+            'class': 'form-control',
+            'placeholder': 'Enter Additional Notes',
+            'rows': 2
+        })
+    )
+
     service_type = forms.CharField(max_length=48,
         label='Service Type',
         widget=forms.TextInput(attrs={
@@ -238,16 +252,35 @@ class InvoiceForm2(forms.Form):
             'rows':1
         })
     )
-    termsandconditions = forms.CharField(
+    termsandconditionsaprorigs = forms.CharField(
         label='Terms and Conditions',
-        initial= f'• It is an example of estimated costs and does not reflect actual costs your company may accrue during the process.\n• Requires a 100% down payment upon the start of the build. \n• Estimate Validity - 7 days. ',
-
+        initial=f'• Apro Rigs\n• Requires a 100% down payment upon the start of the build. \n• Estimate Validity - 7 days. ',
         widget=forms.Textarea(attrs={
             'class': 'form-control',
             'placeholder': 'Enter Terms and Conditions',
-            'rows':2
+            'rows': 2
         })
     )
+
+    termsandconditionsaproitsolutions = forms.CharField(
+        label='Terms and Conditions',
+        initial=f'• Apro IT Solutions\n• Requires a 100% down payment upon the start of the build. \n• Estimate Validity - 7 days. ',
+        widget=forms.Textarea(attrs={
+            'class': 'form-control',
+            'placeholder': 'Enter Terms and Conditions',
+            'rows': 2
+        })
+    )
+    termsandconditionsaprocms = forms.CharField(
+        label='Terms and Conditions',
+        initial=f'• Apro CMS\n• Requires a 100% down payment upon the start of the build. \n• Estimate Validity - 7 days. ',
+        widget=forms.Textarea(attrs={
+            'class': 'form-control',
+            'placeholder': 'Enter Terms and Conditions',
+            'rows': 2
+        })
+    )
+
 
 class LineItemForm1(forms.Form):
     

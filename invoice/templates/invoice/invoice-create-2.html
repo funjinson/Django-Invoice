@@ -4,7 +4,54 @@
 {% block content %}
 
 <br>
+<script>
 
+
+ function bodyloadfirst(){
+  document.getElementById('div1a').style.display ='block';
+  document.getElementById('div1b').style.display ='none';
+  document.getElementById('div1c').style.display ='none';
+
+ document.getElementById('div2A').style.display ='block';
+ document.getElementById('div2B').style.display ='none';
+ document.getElementById('div2C').style.display ='none';
+
+
+}
+function show1(){
+  document.getElementById('div1a').style.display ='block';
+  document.getElementById('div1b').style.display ='none';
+  document.getElementById('div1c').style.display ='none';
+
+ document.getElementById('div2A').style.display ='block';
+ document.getElementById('div2B').style.display ='none';
+ document.getElementById('div2C').style.display ='none';
+
+
+}
+function show2(){
+
+  document.getElementById('div1a').style.display ='none';
+  document.getElementById('div1b').style.display ='block';
+  document.getElementById('div1c').style.display ='none';
+
+ document.getElementById('div2A').style.display ='none';
+ document.getElementById('div2B').style.display ='block';
+ document.getElementById('div2C').style.display ='none';
+
+}
+function show3(){
+  document.getElementById('div1a').style.display ='none';
+  document.getElementById('div1b').style.display = 'none';
+  document.getElementById('div1c').style.display = 'block';
+
+ document.getElementById('div2A').style.display ='none';
+ document.getElementById('div2B').style.display ='none';
+ document.getElementById('div2C').style.display ='block';
+}
+
+
+ </script>
 <section class="hero is-fullheight">
     <div class="container">
         <div class="card white-ter">
@@ -18,7 +65,14 @@ color: black;">Non Tax Estimate</h1> <br/>
                     <div class="columns is-centered">
                         <div class="column is-one-third">
 
-                            {{form.service|bulma}}
+                        <label class="label">Service Type:</label>
+  <input type="radio" checked id="AproRigs" name="service" value="https://www.aprorigs.com/wp-content/uploads/2021/11/logo3.png"   onclick="show1();">
+  <label  for="AproRigs">Apro Rigs</label><br>
+  <input type="radio" id="AproITSolutions" name="service" value="https://aproitsolutions.com/wp-content/uploads/2019/07/apro-logo-for-web-new-dark-1.png" onclick="show2();">
+  <label for="AproITSolutions">Apro IT Solutions</label><br>
+  <input type="radio" id="AproCMS" name="service" value="https://t4.ftcdn.net/jpg/04/40/92/73/360_F_440927381_ljaelLw3fiAaM7baJB4kqN6BHCguhJ0l.jpg" onclick="show3();">
+  <label  for="AproCMS">Apro CMS</label>
+                        </div>
                         </div>
                         <div class="column is-one-third">
                             {{form.customer|bulma}}
