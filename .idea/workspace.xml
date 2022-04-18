@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="386e9238-49fa-4d0a-af3e-9e2b6bba8cb5" name="Changes" comment="18 APRIL 19.08 TODAY FINAL COMMIT">
+    <list default="true" id="386e9238-49fa-4d0a-af3e-9e2b6bba8cb5" name="Changes" comment="18 APRIL 19.08 TODAY FINAL COMMIT hh">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/invoice/templates/invoice/invoice-create.html" beforeDir="false" afterPath="$PROJECT_DIR$/invoice/templates/invoice/invoice-create.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,6 +22,17 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--follow-tags" />
+        <option name="title" value="Current Branch" />
+      </GitPushTagMode>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="new" />
+      </map>
+    </option>
     <option name="RECENT_COMMON_BRANCH" value="main" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="SYNC" />
@@ -196,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650289092618</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="18 APRIL 19.08 TODAY FINAL COMMIT">
+      <created>1650289343672</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1650289343673</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -220,7 +239,7 @@
     <MESSAGE value="changes 14 apr 2022 17:20" />
     <MESSAGE value="changes 14 apr 2022 18.35" />
     <MESSAGE value="14 APRIL 18.48 TODAY FINAL COMMIT" />
-    <MESSAGE value="18 APRIL 19.08 TODAY FINAL COMMIT" />
-    <option name="LAST_COMMIT_MESSAGE" value="18 APRIL 19.08 TODAY FINAL COMMIT" />
+    <MESSAGE value="18 APRIL 19.08 TODAY FINAL COMMIT hh" />
+    <option name="LAST_COMMIT_MESSAGE" value="18 APRIL 19.08 TODAY FINAL COMMIT hh" />
   </component>
 </project>
