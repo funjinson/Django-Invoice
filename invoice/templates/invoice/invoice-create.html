@@ -168,10 +168,10 @@ color: black;">Tax Estimate</h1> <br/>
                             <tr>
                                 <th>Product Name</th>
                                 <th>Description</th>
-                                <th>QTY</th>
-                                <th>RATE</th>
-                                <th>AMOUNT</th>
-                                <th>ADD</th>
+                                <th>Qty</th>
+                                <th>Rate</th>
+                                <th>Amount</th>
+                                <th>Add</th>
                             </tr>
                             {{ formset.management_form }}
                             {% for form in formset %}
@@ -223,7 +223,6 @@ color: black;">Tax Estimate</h1> <br/>
                     </div>
                 </form>
             </div>
-           
         </div>
     </div>
 </section>
@@ -231,9 +230,8 @@ color: black;">Tax Estimate</h1> <br/>
 {% block custom_js %}
 
 
-
-
 <script type="text/javascript">
+
 
 
     $('table input').on("input", function () {
@@ -244,11 +242,13 @@ color: black;">Tax Estimate</h1> <br/>
         amt = textValue1 * textValue2;
         //console.log(amt);
         $('.amount', $tr).html(amt);
+
+
         calc_total();
         calc_tax();
-
-
     });
+
+
 
     //total
     function calc_total() {
@@ -259,12 +259,17 @@ color: black;">Tax Estimate</h1> <br/>
         });
        $('#total').text(sum);
 
-
+ console.log(sum);
     }
+
+
+
+
+
 
     //tax
     function calc_tax() {
-
+        $("#gst").on("change", function () {
             //Getting Value
             var selValue = $("#gst").val();
             //Setting Value
@@ -277,23 +282,18 @@ color: black;">Tax Estimate</h1> <br/>
             }
             var taxa = selValue;
             $(".amount").each(function () {
-                taxa = parseFloat($(this).text()) ;
-
+                taxa *= parseFloat($(this).text());
             });
+            calc_total();
             $("#total1").text(taxa.toFixed(2));
 
+            //var bbb = taxa.toFixed(2);
 
 
-
-
-
-
-
+        });
     }
 
 
-
-  
 </script>
 <script type="text/javascript">
 
