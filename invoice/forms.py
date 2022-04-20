@@ -6,8 +6,8 @@ from django.contrib.auth.models import User
 
 CHOICES=[('https://www.aprorigs.com/wp-content/uploads/2021/11/logo3.png','Apro Rigs'),
          ('https://aproitsolutions.com/wp-content/uploads/2019/07/apro-logo-for-web-new-dark-1.png','Apro IT Solutions'),
-         ('https://t4.ftcdn.net/jpg/04/40/92/73/360_F_440927381_ljaelLw3fiAaM7baJB4kqN6BHCguhJ0l.jpg','Apro CMS')]
-
+         ('https://t4.ftcdn.net/jpg/04/40/92/73/360_F_440927381_ljaelLw3fiAaM7baJB4kqN6BHCguhJ0l.jpg','Apro CMS'),
+         ('https://aprohosting.com/wp-content/uploads/2021/11/logo-02.png','Apro Hosting')]
 CURRENCY=[('₹','INR'),
           ('$','USD'),
           ('د.إ','AED')]
@@ -110,6 +110,15 @@ class InvoiceForm1(forms.Form):
             'rows': 2
         })
     )
+    fulldescriptionhosting = forms.CharField(
+        label='Additional Notes',
+        initial=f'Apro Hosting.\n* HiveOS is free for 1 rig, additional rigs $3 per month.\n* Brand Warranty does not cover riser cables, splitter cables and pcie hubs. \n* GST 18% applicapble on the final invoice depending on the client profile',
+        widget=forms.Textarea(attrs={
+            'class': 'form-control',
+            'placeholder': 'Enter Additional Notes',
+            'rows': 2
+        })
+    )
 
 
     service_type = forms.CharField(max_length=48,
@@ -140,6 +149,15 @@ class InvoiceForm1(forms.Form):
          })
      )
     termsandconditionsaprocms = forms.CharField(
+        label='Terms and Conditions',
+        initial= f'• Apro CMS\n• Requires a 100% down payment upon the start of the build. \n• Estimate Validity - 7 days. ',
+        widget=forms.Textarea(attrs={
+             'class': 'form-control',
+             'placeholder': 'Enter Terms and Conditions',
+             'rows':2
+         })
+     )
+    termsandconditionshosting = forms.CharField(
         label='Terms and Conditions',
         initial= f'• Apro CMS\n• Requires a 100% down payment upon the start of the build. \n• Estimate Validity - 7 days. ',
         widget=forms.Textarea(attrs={

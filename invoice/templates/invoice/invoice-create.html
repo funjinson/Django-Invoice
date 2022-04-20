@@ -29,10 +29,12 @@
   document.getElementById('div1a').style.display ='block';
   document.getElementById('div1b').style.display ='none';
   document.getElementById('div1c').style.display ='none';
+  document.getElementById('div1d').style.display ='none';
 
  document.getElementById('div2A').style.display ='block';
  document.getElementById('div2B').style.display ='none';
  document.getElementById('div2C').style.display ='none';
+ document.getElementById('div2D').style.display ='none';
 
 
 }
@@ -40,10 +42,14 @@ function show1(){
   document.getElementById('div1a').style.display ='block';
   document.getElementById('div1b').style.display ='none';
   document.getElementById('div1c').style.display ='none';
+  document.getElementById('div1d').style.display ='none';
+
 
  document.getElementById('div2A').style.display ='block';
  document.getElementById('div2B').style.display ='none';
  document.getElementById('div2C').style.display ='none';
+ document.getElementById('div2D').style.display ='none';
+
 
 
 }
@@ -52,23 +58,39 @@ function show2(){
   document.getElementById('div1a').style.display ='none';
   document.getElementById('div1b').style.display ='block';
   document.getElementById('div1c').style.display ='none';
+  document.getElementById('div1d').style.display ='none';
 
  document.getElementById('div2A').style.display ='none';
  document.getElementById('div2B').style.display ='block';
  document.getElementById('div2C').style.display ='none';
+ document.getElementById('div2D').style.display ='none';
+
 
 }
 function show3(){
   document.getElementById('div1a').style.display ='none';
   document.getElementById('div1b').style.display = 'none';
   document.getElementById('div1c').style.display = 'block';
+  document.getElementById('div1d').style.display = 'none';
 
  document.getElementById('div2A').style.display ='none';
  document.getElementById('div2B').style.display ='none';
  document.getElementById('div2C').style.display ='block';
+ document.getElementById('div2D').style.display ='none';
+
 }
 
+function show4(){
+  document.getElementById('div1a').style.display ='none';
+  document.getElementById('div1b').style.display = 'none';
+  document.getElementById('div1c').style.display = 'none';
+  document.getElementById('div1d').style.display = 'block';
 
+ document.getElementById('div2A').style.display ='none';
+ document.getElementById('div2B').style.display ='none';
+ document.getElementById('div2C').style.display ='none';
+ document.getElementById('div2D').style.display ='block';
+}
  </script>
                 <form class="" method="POST" action="" >
                      <h1 style="text-align: center;
@@ -84,6 +106,8 @@ color: black;">Tax Estimate</h1> <br/>
   <label for="AproITSolutions">Apro IT Solutions</label><br>
   <input type="radio" id="AproCMS" name="service" value="https://t4.ftcdn.net/jpg/04/40/92/73/360_F_440927381_ljaelLw3fiAaM7baJB4kqN6BHCguhJ0l.jpg" onclick="show3();">
   <label  for="AproCMS">Apro CMS</label>
+  <input type="radio" id="AproHosting" name="service" value="https://aprohosting.com/wp-content/uploads/2021/11/logo-02.png" onclick="show4();">
+  <label  for="AproHosting">Apro Hosting</label>
                         </div>
                         <div class="column is-one-third">
                             {{form.customer|bulma}}
@@ -127,7 +151,9 @@ color: black;">Tax Estimate</h1> <br/>
                             <div id="div1c">
                                   {{form.termsandconditionsaprocms|bulma}}
                             </div>
-
+                            <div id="div1d">
+                                {{form.termsandconditionsaprohosting|bulma}}
+                          </div>
 
 
                         </div>
@@ -141,6 +167,9 @@ color: black;">Tax Estimate</h1> <br/>
                             <div id="div2C">
                                  {{form.fulldescriptioncms|bulma}}
                             </div>
+                            <div id="div2D">
+                                {{form.fulldescriptionhosting|bulma}}
+                           </div>
 
                         </div>
 
