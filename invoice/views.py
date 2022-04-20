@@ -73,6 +73,8 @@ def createInvoice1(request):
         b = int(a)
 
         servicea = form.data["service"]
+        
+
 
         if servicea == 'https://www.aprorigs.com/wp-content/uploads/2021/11/logo3.png':
             terms1 = form.data["termsandconditionsaprorigs"]
@@ -81,6 +83,10 @@ def createInvoice1(request):
         elif servicea == 'https://aproitsolutions.com/wp-content/uploads/2019/07/apro-logo-for-web-new-dark-1.png':
             terms1 = form.data["termsandconditionsaproitsolutions"]
             additionalnotes = form.data["fulldescriptionit"]
+
+        elif servicea == 'https://aprohosting.com/wp-content/uploads/2021/11/logo-02.png':
+            terms1 = form.data["termsandconditionsaprohosting"]
+            additionalnotes = form.data["fulldescriptionaprohosting"]
 
         else:
             terms1 = form.data["termsandconditionsaprocms"]
