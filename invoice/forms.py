@@ -110,7 +110,7 @@ class InvoiceForm1(forms.Form):
             'rows': 2
         })
     )
-    fulldescriptionhosting = forms.CharField(
+    fulldescriptionaprohosting = forms.CharField(
         label='Additional Notes',
         initial=f'Apro Hosting.\n* HiveOS is free for 1 rig, additional rigs $3 per month.\n* Brand Warranty does not cover riser cables, splitter cables and pcie hubs. \n* GST 18% applicapble on the final invoice depending on the client profile',
         widget=forms.Textarea(attrs={
@@ -157,9 +157,9 @@ class InvoiceForm1(forms.Form):
              'rows':2
          })
      )
-    termsandconditionshosting = forms.CharField(
+    termsandconditionsaprohosting = forms.CharField(
         label='Terms and Conditions',
-        initial= f'• Apro CMS\n• Requires a 100% down payment upon the start of the build. \n• Estimate Validity - 7 days. ',
+        initial= f'• Apro Hosting\n• Requires a 100% down payment upon the start of the build. \n• Estimate Validity - 7 days. ',
         widget=forms.Textarea(attrs={
              'class': 'form-control',
              'placeholder': 'Enter Terms and Conditions',
