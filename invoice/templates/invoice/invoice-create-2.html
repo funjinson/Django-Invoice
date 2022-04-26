@@ -4,17 +4,37 @@
 {% block content %}
 
 <br>
-<script>
+
+<section class="hero is-fullheight">
+    <div class="container">
+        <div class="card white-ter">
+            <div style="text-align:center;"> <object data="{% static 'img/logo%20new.svg' %}" width="300" height="auto"> </object></div>
+ <div style="text-align:center;"><span id="clock"></span></div>
+            <div class="hero-body">
+
+   <script type="text/javascript">
+    var clockElement = document.getElementById('clock');
+
+    function clock() {
+        clockElement.textContent = new Date().toString();
+    }
+
+    setInterval(clock, 1000);
+</script>
+
+ <script>
 
 
  function bodyloadfirst(){
   document.getElementById('div1a').style.display ='block';
   document.getElementById('div1b').style.display ='none';
   document.getElementById('div1c').style.display ='none';
+  document.getElementById('div1d').style.display ='none';
 
  document.getElementById('div2A').style.display ='block';
  document.getElementById('div2B').style.display ='none';
  document.getElementById('div2C').style.display ='none';
+ document.getElementById('div2D').style.display ='none';
 
 
 }
@@ -22,10 +42,14 @@ function show1(){
   document.getElementById('div1a').style.display ='block';
   document.getElementById('div1b').style.display ='none';
   document.getElementById('div1c').style.display ='none';
+  document.getElementById('div1d').style.display ='none';
+
 
  document.getElementById('div2A').style.display ='block';
  document.getElementById('div2B').style.display ='none';
  document.getElementById('div2C').style.display ='none';
+ document.getElementById('div2D').style.display ='none';
+
 
 
 }
@@ -34,78 +58,122 @@ function show2(){
   document.getElementById('div1a').style.display ='none';
   document.getElementById('div1b').style.display ='block';
   document.getElementById('div1c').style.display ='none';
+  document.getElementById('div1d').style.display ='none';
 
  document.getElementById('div2A').style.display ='none';
  document.getElementById('div2B').style.display ='block';
  document.getElementById('div2C').style.display ='none';
+ document.getElementById('div2D').style.display ='none';
+
 
 }
 function show3(){
   document.getElementById('div1a').style.display ='none';
   document.getElementById('div1b').style.display = 'none';
   document.getElementById('div1c').style.display = 'block';
+  document.getElementById('div1d').style.display = 'none';
 
  document.getElementById('div2A').style.display ='none';
  document.getElementById('div2B').style.display ='none';
  document.getElementById('div2C').style.display ='block';
+ document.getElementById('div2D').style.display ='none';
+
 }
 
+function show4(){
+  document.getElementById('div1a').style.display ='none';
+  document.getElementById('div1b').style.display = 'none';
+  document.getElementById('div1c').style.display = 'none';
+  document.getElementById('div1d').style.display = 'block';
 
+ document.getElementById('div2A').style.display ='none';
+ document.getElementById('div2B').style.display ='none';
+ document.getElementById('div2C').style.display ='none';
+ document.getElementById('div2D').style.display ='block';
+}
  </script>
-<section class="hero is-fullheight">
-    <div class="container">
-        <div class="card white-ter">
-            <object data="{% static 'img/logo%20new.svg' %}" width="300" height="auto"> </object>
-            <div class="hero-body">
-                <form class="" method="POST" action="">
+                <form class="" method="POST" action="" >
                      <h1 style="text-align: center;
 font-size: 46px;
 color: black;">Non Tax Estimate</h1> <br/>
                     {% csrf_token %}
                     <div class="columns is-centered">
                         <div class="column is-one-third">
-
-                        <label class="label">Service Type:</label>
+                            <label class="label">Service Type:</label>
   <input type="radio" checked id="AproRigs" name="service" value="https://www.aprorigs.com/wp-content/uploads/2021/11/logo3.png"   onclick="show1();">
   <label  for="AproRigs">Apro Rigs</label><br>
   <input type="radio" id="AproITSolutions" name="service" value="https://aproitsolutions.com/wp-content/uploads/2019/07/apro-logo-for-web-new-dark-1.png" onclick="show2();">
   <label for="AproITSolutions">Apro IT Solutions</label><br>
   <input type="radio" id="AproCMS" name="service" value="https://t4.ftcdn.net/jpg/04/40/92/73/360_F_440927381_ljaelLw3fiAaM7baJB4kqN6BHCguhJ0l.jpg" onclick="show3();">
   <label  for="AproCMS">Apro CMS</label>
-                        </div>
+  <input type="radio" id="AproHosting" name="service" value="https://aprohosting.com/wp-content/uploads/2021/11/logo-02.png" onclick="show4();">
+  <label  for="AproHosting">Apro Hosting</label>
                         </div>
                         <div class="column is-one-third">
                             {{form.customer|bulma}}
                         </div>
                         <div class="column is-one-third">
-                            {{form.bill_title|bulma}}
+                            {{form.service_type|bulma}}
                         </div>
                     </div>
                     <div class="columns is-centered">
                         <div class="column is-one-third">
-                            {{form.service_type|bulma}}
+                            {{form.bill_title|bulma}}
                         </div>
 
 
+                        <div class="column is-one-third">
+                            <label class="label">Choose Tax Percentage:</label>
+                            <select name="gst" id="gst" class="form-control control input" onChange="update()">
+
+
+                                <option value="0" selected >None</option>
+
+                            </select>
+                        </div>
                         <div class="column is-one-third">
                             {{form.date|bulma}}
                         </div>
-                        <div class="column is-one-third">
-                           {{form.termsandconditions|bulma}}
-                        </div>
 
                     </div>
-                    <div class="columns is-centered">
+                    <div class="columns is-centered" >
                         <div class="column is-one-third">
-                                                        {{form.fulldescription|bulma}}
+
+
+                            <div id="div1a">
+                                 {{form.termsandconditionsaprorigs|bulma}}
+                            </div>
+                             <div id="div1b">
+                                  {{form.termsandconditionsaproitsolutions|bulma}}
+                            </div>
+
+                            <div id="div1c">
+                                  {{form.termsandconditionsaprocms|bulma}}
+                            </div>
+                            <div id="div1d">
+                                {{form.termsandconditionsaprohosting|bulma}}
+                          </div>
+
 
                         </div>
                         <div class="column is-one-third">
-                                                        {{form.currency|bulma}}
+                             <div id="div2A">
+                                 {{form.fulldescriptionrigs|bulma}}
+                            </div>
+                            <div id="div2B">
+                                 {{form.fulldescriptionit|bulma}}
+                            </div>
+                            <div id="div2C">
+                                 {{form.fulldescriptioncms|bulma}}
+                            </div>
+                            <div id="div2D">
+                                {{form.fulldescriptionaprohosting|bulma}}
+                           </div>
 
                         </div>
 
                         <div class="column is-one-third">
+                            {{form.currency|bulma}}
                         </div>
 
                     </div>
@@ -128,10 +196,10 @@ color: black;">Non Tax Estimate</h1> <br/>
                             <tr>
                                 <th>Product Name</th>
                                 <th>Description</th>
-                                <th>QTY</th>
-
-                                <th>AMOUNT</th>
-                                <th>ADD</th>
+                                <th>Qty</th>
+                                <th>Rate</th>
+                                <th>Amount</th>
+                                <th>Add</th>
                             </tr>
                             {{ formset.management_form }}
                             {% for form in formset %}
@@ -139,9 +207,8 @@ color: black;">Non Tax Estimate</h1> <br/>
                                 <td>{{form.service}}</td>
                                 <td>{{form.description}}</td>
                                 <td>{{form.quantity}}</td>
-
-<!--                                <td class="amount"></td>-->
-                                <td>{{form.amount}}</td>
+                                <td>{{form.rate}}</td>
+                                <td class="amount"></td>
                                 <td>
                                     <div class="input-group-append">
                                         <button class="button is-small btn btn-success add-form-row">
@@ -159,11 +226,11 @@ color: black;">Non Tax Estimate</h1> <br/>
                     </table>
                     <div class="row spacer">
                         <div class="columns">
-<!--                            <div class="column">-->
-<!--                                <h3 class="title is-4">Total Without GST:<span id="total"></span></h3>-->
+                            <div class="column">
+                                <h3 class="title is-4">Total Without GST: <span id="total"></span></h3>
+                                <h3 class="title is-4">Total With GST: <span id="total1"></span></h3>
 
-
-<!--                            </div>-->
+                            </div>
                             <div class="column">
 <!--                                <h3 class="title is-4">Total:<span id="totalcost"></span></h3>-->
 <!--                                <h3 class="title is-4">Total GST: <span id="total1"></span></h3>-->
@@ -177,24 +244,85 @@ color: black;">Non Tax Estimate</h1> <br/>
                         <div class="row spacer">
                             <div class="col-4 offset-2">
                                 <button class="button is-rounded is-info">
-                                    <a href="{% url 'invoice:invoice-list' %}" class="has-text-white">View All Estimates</a>
+                                    <a href="{% url 'invoice:invoice-list' %}" class="has-text-white">View Tax Estimates</a>
                                 </button>
                             </div>
                         </div>
                     </div>
                 </form>
             </div>
-
         </div>
     </div>
 </section>
 {% endblock %}
 {% block custom_js %}
 
+<br>
+<script>
+
+
+
+    $('table input').on("input", function () {
+        var total = []
+        var $tr = $(this).closest('tr');
+        var textValue1 = $("input.rate", $tr).val();
+        var textValue2 = $('input.quantity', $tr).val();
+        amt = textValue1 * textValue2;
+        //console.log(amt);
+        $('.amount', $tr).html(amt);
+
+
+        calc_total();
+        calc_tax();
+    });
+
+
+
+    //total
+    function calc_total() {
+        var sum = 0;
+        $(".amount").each(function () {
+            sum += parseFloat($(this).text());
+
+        });
+       $('#total').text(sum);
+
+ console.log(sum);
+    }
 
 
 
 
+
+
+    //tax
+    function calc_tax() {
+        $("#gst").on("change", function () {
+            //Getting Value
+            var selValue = $("#gst").val();
+            //Setting Value
+            if (this.selValue == '0')
+            {
+                $("#total1").hide();
+            }
+            else {
+                $("#total1").show();
+            }
+            var taxa = selValue;
+            $(".amount").each(function () {
+                taxa *= parseFloat($(this).text());
+            });
+            calc_total();
+            $("#total1").text(taxa.toFixed(2));
+
+            //var bbb = taxa.toFixed(2);
+
+
+        });
+    }
+
+
+</script>
 <script type="text/javascript">
 
 

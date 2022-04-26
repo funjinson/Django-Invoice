@@ -157,6 +157,7 @@ class InvoiceForm1(forms.Form):
              'rows':2
          })
      )
+
     termsandconditionsaprohosting = forms.CharField(
         label='Terms and Conditions',
         initial= f'• Apro Hosting\n• Requires a 100% down payment upon the start of the build. \n• Estimate Validity - 7 days. ',
@@ -170,10 +171,10 @@ class InvoiceForm1(forms.Form):
 class InvoiceForm2(forms.Form):
 
 
-    service = forms.ChoiceField(
-        label ='Select Service',
-        choices=CHOICES,
-        widget=forms.RadioSelect)
+    # service = forms.ChoiceField(
+    #     label ='Select Service',
+    #     choices=CHOICES,
+    #     widget=forms.RadioSelect)
 
     currency = forms.ChoiceField(
         label='Select Currency',
@@ -208,10 +209,10 @@ class InvoiceForm2(forms.Form):
 
     )
     bill_title = forms.CharField(max_length=148,
-        label='Bill Title',
+        label='Estimate Description',
         widget=forms.TextInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Title of Bill',
+            'placeholder': 'Bill Description',
             'rows':1
         })
     )
@@ -232,7 +233,6 @@ class InvoiceForm2(forms.Form):
     #         'rows':1
     #     })
     # )
-
 
     fulldescriptionrigs = forms.CharField(
         label='Additional Notes',
@@ -261,9 +261,19 @@ class InvoiceForm2(forms.Form):
             'rows': 2
         })
     )
+    fulldescriptionaprohosting = forms.CharField(
+        label='Additional Notes',
+        initial=f'Apro Hosting.\n* HiveOS is free for 1 rig, additional rigs $3 per month.\n* Brand Warranty does not cover riser cables, splitter cables and pcie hubs. \n* GST 18% applicapble on the final invoice depending on the client profile',
+        widget=forms.Textarea(attrs={
+            'class': 'form-control',
+            'placeholder': 'Enter Additional Notes',
+            'rows': 2
+        })
+    )
+
 
     service_type = forms.CharField(max_length=48,
-        label='Service Type',
+        label='Service Message',
         widget=forms.TextInput(attrs={
             'class': 'form-control',
             'placeholder': 'Apro Rigs - Mining Rigs',
@@ -272,32 +282,42 @@ class InvoiceForm2(forms.Form):
     )
     termsandconditionsaprorigs = forms.CharField(
         label='Terms and Conditions',
-        initial=f'• Apro Rigs\n• Requires a 100% down payment upon the start of the build. \n• Estimate Validity - 7 days. ',
+        initial= f'• Apro Rigs\n• Requires a 100% down payment upon the start of the build. \n• Estimate Validity - 7 days. ',
         widget=forms.Textarea(attrs={
-            'class': 'form-control',
-            'placeholder': 'Enter Terms and Conditions',
-            'rows': 2
-        })
-    )
+             'class': 'form-control',
+             'placeholder': 'Enter Terms and Conditions',
+             'rows':2
+         })
+     )
 
     termsandconditionsaproitsolutions = forms.CharField(
         label='Terms and Conditions',
-        initial=f'• Apro IT Solutions\n• Requires a 100% down payment upon the start of the build. \n• Estimate Validity - 7 days. ',
+        initial= f'• Apro IT Solutions\n• Requires a 100% down payment upon the start of the build. \n• Estimate Validity - 7 days. ',
         widget=forms.Textarea(attrs={
-            'class': 'form-control',
-            'placeholder': 'Enter Terms and Conditions',
-            'rows': 2
-        })
-    )
+             'class': 'form-control',
+             'placeholder': 'Enter Terms and Conditions',
+             'rows':2
+         })
+     )
     termsandconditionsaprocms = forms.CharField(
         label='Terms and Conditions',
-        initial=f'• Apro CMS\n• Requires a 100% down payment upon the start of the build. \n• Estimate Validity - 7 days. ',
+        initial= f'• Apro CMS\n• Requires a 100% down payment upon the start of the build. \n• Estimate Validity - 7 days. ',
         widget=forms.Textarea(attrs={
-            'class': 'form-control',
-            'placeholder': 'Enter Terms and Conditions',
-            'rows': 2
-        })
-    )
+             'class': 'form-control',
+             'placeholder': 'Enter Terms and Conditions',
+             'rows':2
+         })
+     )
+
+    termsandconditionsaprohosting = forms.CharField(
+        label='Terms and Conditions',
+        initial= f'• Apro Hosting\n• Requires a 100% down payment upon the start of the build. \n• Estimate Validity - 7 days. ',
+        widget=forms.Textarea(attrs={
+             'class': 'form-control',
+             'placeholder': 'Enter Terms and Conditions',
+             'rows':2
+         })
+     )
 
 
 class LineItemForm1(forms.Form):

@@ -159,8 +159,6 @@ def createInvoice1(request):
     }
     return render(request, 'invoice/invoice-create.html', context)
 
-
-@login_required
 def createInvoice2(request):
     """
     Invoice Generator page it will have Functionality to create new invoices,
@@ -176,50 +174,97 @@ def createInvoice2(request):
         formset = LineItemFormset2(request.POST)
         form = InvoiceForm2(request.POST)
 
+        gstpercentageinfloat = form.data["gst"]
+        a = float(gstpercentageinfloat) * 100
+        b = int(a)
+
+        servicea = form.data["service"]
+
+
+
+        if servicea == 'https://www.aprorigs.com/wp-content/uploads/2021/11/logo3.png':
+            terms1 = form.data["termsandconditionsaprorigs"]
+            additionalnotes = form.data["fulldescriptionrigs"]
+
+        elif servicea == 'https://aproitsolutions.com/wp-content/uploads/2019/07/apro-logo-for-web-new-dark-1.png':
+            terms1 = form.data["termsandconditionsaproitsolutions"]
+            additionalnotes = form.data["fulldescriptionit"]
+
+        elif servicea == 'https://aprohosting.com/wp-content/uploads/2021/11/logo-02.png':
+            terms1 = form.data["termsandconditionsaprohosting"]
+            additionalnotes = form.data["fulldescriptionaprohosting"]
+
+        else:
+            terms1 = form.data["termsandconditionsaprocms"]
+            additionalnotes = form.data["fulldescriptioncms"]
+
+
+        currencycountry = form.data["currency"]
+        footerdefault = form.data["footer"]
+
         if form.is_valid():
             invoice2 = Invoice2.objects.create(customer=form.data["customer"],
                                                bill_title=form.data["bill_title"],
-                                               termsandconditions=form.data["termsandconditions"],
-                                               fulldescription=form.data["fulldescription"],
+                                               gst=gstpercentageinfloat,
+                                               termsandconditions=terms1,
+                                               fulldescription=additionalnotes,
                                                date=form.data["date"],
                                                service_type=form.data["service_type"],
-                                               service=form.data["service"],
-                                               currency=form.data["currency"],
-                                               footer=form.data["footer"],
+                                               gstpercentage=b,
+                                               service=servicea,
+                                               currency=currencycountry,
+                                               footer=footerdefault
+
                                                )
 
-            invoice2.save()
+            # invoice.save()
 
         if formset.is_valid():
             # import pdb;pdb.set_trace()
             # extract name and other data from each form and save
+            total = 0
 
             for form in formset:
                 service = form.cleaned_data.get('service')
                 description = form.cleaned_data.get('description')
                 quantity = form.cleaned_data.get('quantity')
-                amount = form.cleaned_data.get('amount')
-                total = amount
-                LineItem2(customer=invoice2,
-                          service=service,
-                          description=description,
-                          quantity=quantity,
-                          amount=amount).save()
-            invoice2.total_amount = total
+                rate = form.cleaned_data.get('rate')
 
+                if service and description and quantity and rate:
+                    amount = float(rate) * float(quantity)
+
+                    total += amount
+                    LineItem2(customer=invoice2,
+                              service=service,
+                              description=description,
+                              quantity=quantity,
+                              rate=rate,
+                              amount=amount).save()
+            invoice2.total_amount = total
+            totala = float(total)
+            gsta = float(gstpercentageinfloat)
+            gsttotala = totala * gsta
+            floata = gsttotala
+            format_float = "{:.2f}".format(floata)
+
+            invoice2.gsttotal = format_float
+            subtotal = gsttotala + totala
+            abc = float(subtotal)
+            invoice2.subtotal = abc
             invoice2.save()
 
             try:
                 generate_PDF2(request, id=invoice2.id)
             except Exception as e:
                 print(f"********{e}********")
-            return redirect('invoice:invoice-list-2')
+            return redirect('/')
     context = {
         "title": "Invoice Generator",
         "formset": formset,
         "form": form,
     }
     return render(request, 'invoice/invoice-create-2.html', context)
+
 
 
 def view_PDF1(request, id=None):
