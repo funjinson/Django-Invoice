@@ -18,6 +18,7 @@ class InvoiceListView2(View):
     def get(self, *args, **kwargs):
         invoices2 = Invoice2.objects.all().order_by('-id')
         context = {
+
             "invoices2": invoices2,
         }
 
