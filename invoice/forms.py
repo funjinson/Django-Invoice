@@ -7,8 +7,10 @@ from django.contrib.auth.models import User
 
 CURRENCY=[('₹','Indian Rupee (INR)'),
           ('$','United States Dollar (USD)'),
+          ('﷼','Qatar Riyal (QAR)'),
+          ('£','Egypt Pound (EGP)'),
+          ('¥','Japan Yen (JPY)'),
           ('د.إ','Emirati Dirham (AED)')]
-
 
 
 

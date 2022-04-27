@@ -14,6 +14,7 @@ import pdfkit
 
 
 class InvoiceListView2(View):
+
     def get(self, *args, **kwargs):
         invoices2 = Invoice2.objects.all().order_by('-id')
         context = {
@@ -21,6 +22,7 @@ class InvoiceListView2(View):
         }
 
         return render(self.request, 'invoice/invoice-list-2.html', context)
+
 
     def post(self, request):
         # import pdb;pdb.set_trace()
