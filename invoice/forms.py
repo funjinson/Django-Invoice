@@ -8,9 +8,9 @@ CHOICES=[('https://www.aprorigs.com/wp-content/uploads/2021/11/logo3.png','Apro 
          ('https://aproitsolutions.com/wp-content/uploads/2019/07/apro-logo-for-web-new-dark-1.png','Apro IT Solutions'),
          ('https://t4.ftcdn.net/jpg/04/40/92/73/360_F_440927381_ljaelLw3fiAaM7baJB4kqN6BHCguhJ0l.jpg','Apro CMS'),
          ('https://aprohosting.com/wp-content/uploads/2021/11/logo-02.png','Apro Hosting')]
-CURRENCY=[('₹','INR'),
-          ('$','USD'),
-          ('د.إ','AED')]
+CURRENCY=[('₹','Indian Rupee (INR)'),
+          ('$','United States Dollar (USD)'),
+          ('د.إ','Emirati Dirham (AED)')]
 
 
 

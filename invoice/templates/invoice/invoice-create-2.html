@@ -146,27 +146,12 @@ color: black;">Non Tax Estimate</h1> <br/>
                         <div class="column is-one-third">
                             {{form.bill_title|bulma}}
                         </div>
-
-
-                        <div class="column is-one-third">
-                            <label class="label">Choose Tax Percentage:</label>
-                            <select name="gst" id="gst" class="form-control control input" onChange="update()">
-
-
-                                <option value="0" selected >None</option>
-
-                            </select>
-                        </div>
-                        <div class="column is-one-third">
+                    <div class="column is-one-third">
                             {{form.date|bulma}}
                         </div>
 
-                    </div>
-                    <div class="columns is-centered" >
                         <div class="column is-one-third">
-
-
-                            <div id="div1a">
+ <div id="div1a">
                                  {{form.termsandconditionsaprorigs|bulma}}
                             </div>
                              <div id="div1b">
@@ -180,10 +165,15 @@ color: black;">Non Tax Estimate</h1> <br/>
                                 {{form.termsandconditionsaprohosting|bulma}}
                           </div>
 
-
                         </div>
+
+
+                    </div>
+                    <div class="columns is-centered" >
                         <div class="column is-one-third">
-                             <div id="div2A">
+
+
+   <div id="div2A">
                                  {{form.fulldescriptionrigs|bulma}}
                             </div>
                             <div id="div2B">
@@ -197,23 +187,28 @@ color: black;">Non Tax Estimate</h1> <br/>
                            </div>
 
                         </div>
+                        <div class="column is-one-third">
+                    {{form.currency|bulma}}
+
+                        </div>
 
                         <div class="column is-one-third">
-                            {{form.currency|bulma}}
+        {{form.footer|bulma}}
                         </div>
 
                     </div>
 
                         <div class="columns is-centered">
                         <div class="column is-one-third">
-                             {{form.footer|bulma}}
-                        </div>
-                        <div class="column is-one-third">
-
-                            <div id="aprorigsimage"><img src="https://www.aprorigs.com/wp-content/uploads/2021/11/logo3.png" style="width:41%;" > </div>
+                            <label class="label">Selected Service:</label>
+                               <div id="aprorigsimage"><img src="https://www.aprorigs.com/wp-content/uploads/2021/11/logo3.png" style="width:41%;" > </div>
                             <div id="aproitimage"><img src="https://aproitsolutions.com/wp-content/uploads/2019/07/apro-logo-for-web-new-dark-1.png" style="width:41%;" > </div>
                             <div id="aprocmsimage"> <img src="https://t4.ftcdn.net/jpg/04/40/92/73/360_F_440927381_ljaelLw3fiAaM7baJB4kqN6BHCguhJ0l.jpg" style="width:41%;"></div>
                             <div id="aprohostingimage"> <img src="https://aprohosting.com/wp-content/uploads/2021/11/logo-02.png" style="width:41%;"></div>
+
+                        </div>
+                        <div class="column is-one-third">
+
 
                         </div>
 
