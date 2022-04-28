@@ -4326,7 +4326,9 @@ a.tag:hover {
 
 .card {
     background-color: #fff;
+/*
     box-shadow: 0 .5em 1em -.125em rgba(10,10,10,.1),0 0 0 1px rgba(10,10,10,.02);
+*/
     color: #4a4a4a;
     max-width: 100%;
     position: relative
@@ -4335,7 +4337,7 @@ a.tag:hover {
 .card-header {
     background-color: transparent;
     align-items: stretch;
-    box-shadow: 0 .125em .25em rgba(10,10,10,.1);
+/*    box-shadow: 0 .125em .25em rgba(10,10,10,.1);*/
     display: flex
 }
 
@@ -8679,11 +8681,11 @@ a.panel-block, label.panel-block {
 }
 
 .has-text-white {
-    color: #fff !important
+    color: #081c2d !important
 }
 
 a.has-text-white:focus, a.has-text-white:hover {
-    color: #e6e6e6 !important
+    color: #8928da !important
 }
 
 .has-background-white {
