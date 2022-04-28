@@ -596,15 +596,29 @@ function show4(){
 
                             </div>
                             <div class="col-4 offset-2">
-                                <button type="submit" class="button btn btn-block is-info is-half">Save Now</button>
+<!--                                <button type="submit" class="button btn btn-block is-info is-half">Save Now</button>-->
+                                <button type="submit" class="w3-btn w3-white w3-border w3-border-red w3-round-large">Save Now</button>
                             </div>
                         </div>
                         <br>
                         <div class="row spacer">
+
                             <div class="col-4 offset-2">
-                                <button class="button is-rounded is-info">
-                                    <a href="{% url 'invoice:invoice-list' %}" class="has-text-white">View No Tax Estimates</a>
+<!--                                <button class="button is-rounded is-info">-->
+<!--                                    <a href="{% url 'invoice:invoice-list' %}" class="has-text-white">View Tax Estimates</a>-->
+<!--                                </button>-->
+<!--                                -->
+<button class="w3-btn w3-white w3-border w3-border-red w3-round-large">
+                                    <a href="{% url 'invoice:invoice-list' %}" class="has-text-white" style="font-size: 11px;
+font-weight: bold;">View Non Tax Estimates</a>
                                 </button>
+
+                                   <button class="w3-btn w3-white w3-border w3-border-red w3-round-large">
+                                    <a href="{% url 'invoice:invoice-list' %}" class="has-text-white" style="font-size: 11px;
+font-weight: bold;">View Tax Estimates</a>
+                                </button>
+                                <br><br>
+
                             </div>
                         </div>
                     </div>

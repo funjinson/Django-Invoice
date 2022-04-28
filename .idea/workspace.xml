@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="386e9238-49fa-4d0a-af3e-9e2b6bba8cb5" name="Changes" comment="TODAY">
+    <list default="true" id="386e9238-49fa-4d0a-af3e-9e2b6bba8cb5" name="Changes" comment="TODAY gst calculation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/invoice/templates/invoice/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/invoice/templates/invoice/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/invoice/templates/invoice/invoice-create.html" beforeDir="false" afterPath="$PROJECT_DIR$/invoice/templates/invoice/invoice-create.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/invoice/templates/invoice/invoice-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/invoice/templates/invoice/invoice-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/invoice/templates/invoice/invoice-create-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/invoice/templates/invoice/invoice-create-2.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -344,7 +342,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651143445813</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="TODAY gst calculation">
+      <created>1651146554073</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1651146554073</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -381,6 +386,7 @@
     <MESSAGE value="14 APRIL 18.48 TODAY FINAL COMMIT" />
     <MESSAGE value="18 APRIL 19.08 TODAY FINAL COMMIT hh" />
     <MESSAGE value="TODAY" />
-    <option name="LAST_COMMIT_MESSAGE" value="TODAY" />
+    <MESSAGE value="TODAY gst calculation" />
+    <option name="LAST_COMMIT_MESSAGE" value="TODAY gst calculation" />
   </component>
 </project>
