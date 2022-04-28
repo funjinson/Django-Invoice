@@ -333,10 +333,11 @@ font-weight: bold;">View Non Tax Estimates</a>
                             <th >CUSTOMER NAME </th>
                             <th>SERVICE TYPE</th>
 
-                            <th>DATE</th>
+<!--                            <th>DATE</th>-->
 
-
-                            <th>TOTAL</th>
+<th>GST(%)</th>
+                            <th>TOTAL <br>(excluded GST)</th>
+                            <th>TOTAL <br>(included GST)</th>
 
                             <th>View</th>
                             <th>Edit</th>
@@ -354,10 +355,11 @@ font-weight: bold;">View Non Tax Estimates</a>
                         <td width="39%">{{invoice1.customer}}</td>
                         <td width="39%"><img src="{{invoice1.service}}"></img></td>
 
-                        <td width="39%"> {{invoice1.date}}</td>
+<!--                        <td width="39%"> {{invoice1.date}}</td>-->
+ <td>{{invoice1.gstpercentage}}%</td>
 
-
-                        <td>{{invoice1.total_amount}}</td>
+                        <td><b>{{invoice1.currency}}</b> {{invoice1.total_amount}}</td>
+                         <td><b>{{invoice1.currency}}</b> {{invoice1.subtotal}}</td>
                         <!--<td class="level-right">
                             {% if invoice.get_status %}
                             <a class="button is-small is-success" href="#">Paid</a>
