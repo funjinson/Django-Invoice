@@ -25,6 +25,7 @@ SECRET_KEY = 'o6=iy(t5gbr*^w4^gktgh10u10r+yup+k9n1bfphp^$(u@*qmp'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 # Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -37,6 +38,8 @@ INSTALLED_APPS = [
     'invoice',
     'bulma',
 ]
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -11,7 +11,7 @@ from django.template import loader
 from django.contrib.auth.decorators import login_required
 
 import pdfkit
-
+import csv
 
 class InvoiceListView2(View):
 
@@ -74,7 +74,6 @@ def createInvoice1(request):
         gstpercentageinfloat = form.data["gst"]
         a = float(gstpercentageinfloat) * 100
         b = int(a)
-
         servicea = form.data["service"]
         
 
@@ -293,8 +292,6 @@ def view_PDF1(request, id=None):
         "service": invoice1.service,
         "date": invoice1.date,
         "service_type": invoice1.service_type,
-        # "billing_address": invoice.billing_address,
-        # "service_message": invoice.service_message,
         "gstpercentage": invoice1.gstpercentage,
         "subtotal": invoice1.subtotal,
         "gsttotal": invoice1.gsttotal,
@@ -326,9 +323,7 @@ def view_PDF2(request, id=None):
         "service": invoice2.service,
         "date": invoice2.date,
         "service_type": invoice2.service_type,
-
         "subtotal": invoice2.subtotal,
-
         "currency": invoice2.currency,
         "lineitem2": lineitem2,
     }
@@ -337,26 +332,23 @@ def view_PDF2(request, id=None):
 
 def generate_PDF1(request, id):
     options = {
-        'page-size': 'A4',
+
         'margin-top': '0.00in',
         'margin-right': '0.00in',
         'margin-bottom': '0.00in',
         'margin-left': '0.00in',
         'encoding': "UTF-8",
         'custom-header': [
-            ('Accept-Encoding', 'gzip')
-        ],
+            ('Accept-Encoding', 'gzip') ],
 
         'no-outline': None
     }
-    # Use False instead of output path to save pdf to a variable
-    pdf = pdfkit.from_url(request.build_absolute_uri(reverse('invoice:invoice-detail', args=[id])), False,
-                          options=options)
 
+    pdf = pdfkit.from_url(request.build_absolute_uri(reverse('invoice:invoice-detail', args=[id])), True,
+                          options=options)
     response = HttpResponse(pdf, content_type='application/pdf')
 
     response['Content-Disposition'] = 'attachment; filename="pdf.pdf"'
-
     return response
 
 
@@ -369,19 +361,13 @@ def generate_PDF2(request, id):
         'margin-left': '0.00in',
         'encoding': "UTF-8",
         'custom-header': [
-            ('Accept-Encoding', 'gzip')
-        ],
-
+            ('Accept-Encoding', 'gzip') ],
         'no-outline': None
     }
     # Use False instead of output path to save pdf to a variable
-    pdf = pdfkit.from_url(request.build_absolute_uri(reverse('invoice:invoice-detail', args=[id])), False,
-                          options=options)
-
+    pdf = pdfkit.from_url(request.build_absolute_uri(reverse('invoice:invoice-detail', args=[id])), False,  options=options)
     response = HttpResponse(pdf, content_type='application/pdf')
-
     response['Content-Disposition'] = 'attachment; filename="pdf.pdf"'
-
     return response
 
 
@@ -398,9 +384,7 @@ def deleteInvoice2(request, id):
         record = Invoice2.objects.get(id=id)
         record.delete()
     except:
-
         messages.info(request, f'The requested id doesnot exists!')
-
     return redirect('invoice:invoice-list-2')
 
 
@@ -409,9 +393,7 @@ def deleteInvoice1(request, id):
         record = Invoice1.objects.get(id=id)
         record.delete()
     except:
-
         messages.info(request, f'The requested id doesnot exists!')
-
     return redirect('invoice:invoice-list')
 
 
@@ -428,13 +410,24 @@ def updaterecord1(request, id):
     customer = request.POST['customername']
     bill_title = request.POST['billtitle']
     service_type = request.POST['service_type']
-
     invoice1 = Invoice1.objects.get(id=id)
-
     invoice1.customer = customer
     invoice1.bill_title = bill_title
     invoice1.service_type = service_type
-
     invoice1.save()
     messages.info(request, f'The Customer {customer} has been updated successfully!')
     return redirect('/')
+
+
+def export(request):
+    response = HttpResponse(content_type='text/csv')
+
+    writer = csv.writer(response)
+    writer.writerow(['id', 'customer', 'date', 'service_type','bill_title','total_amount','termsandconditions'])
+
+    for customers in Invoice1.objects.all().values_list('id', 'customer', 'date', 'service_type','bill_title','total_amount','termsandconditions'):
+        writer.writerow(customers)
+
+    response['Content-Disposition'] = 'attachment; filename="members.csv"'
+
+    return response
