@@ -12,9 +12,9 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -25,11 +25,7 @@ SECRET_KEY = 'o6=iy(t5gbr*^w4^gktgh10u10r+yup+k9n1bfphp^$(u@*qmp'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-
-
-
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -37,11 +33,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
     'django.contrib.humanize',
-
     'invoice',
-
     'bulma',
 ]
 
@@ -56,6 +49,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'mysite.urls'
+
 
 TEMPLATES = [
     {
@@ -76,17 +70,17 @@ TEMPLATES = [
 
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.PyMemcacheCache',
-        'LOCATION': '127.0.0.1:11211',
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'my_cache_table',
     }
 }
-
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
+
 
 DATABASES = {
     'default': {
