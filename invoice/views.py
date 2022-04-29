@@ -417,7 +417,7 @@ def deleteInvoice1(request, id):
 
 def update1(request, id):
     invoice1 = Invoice1.objects.get(id=id)
-    template = loader.get_template('invoice/update.html')
+    template = loader.get_template('invoice/edittaxcustomers.html')
     context = {
         'invoice1': invoice1,
     }

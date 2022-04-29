@@ -1,13 +1,76 @@
-{% extends 'invoice/base.html' %}
-{% load static %}
+{% extends "invoice/base.html" %}
+{% load static%}
+{% load bulma_tags %}
 {% block content %}
 
-
-
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<br>
+
+<section class="hero is-fullheight">
+    <div class="container">
+        <div class="card white-ter">
+            <div style="text-align:center;"> <object data="{% static 'img/logo%20new.svg' %}" width="300" height="auto"> </object></div>
+ <div style="text-align:center;"><span id="clock"></span></div>
+
 <style>
+    .styled {
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgb(8, 28, 45);
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
 
+  .styled1 {
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: #0BB6D9;
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
 
+.styled:hover {
+    background-color: #0BB6D9;
+}
+
+.styled1:hover {
+    background-color: rgb(8, 28, 45);
+}
+.styled:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
+.styled1:active {
+    box-shadow: inset -2px -2px 3px rgba(255, 255, 255, .6),
+                inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+</style>
+
+            <style>
+
+    /* W3.CSS 4.15 December 2020 by Jan Egil and Borge Refsnes */
 html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
 /* Extract from normalize.css by Nicolas Gallagher and Jonathan Neal git.io/normalize */
 html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}
@@ -245,72 +308,22 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 </style>
 
 
-<div class="columns is-centered has-text-centered">
-    <div class="column is-half">
-        <div class="card has-background-white-ter">
-            <h1 class="title is-3"></h1>
-        </div>
-    </div>
-
-
-
-</div>
-<style>
-    img {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-
-.card-content-edited {
-  background-color: transparent;
-margin-left: -215px;
-margin-right: -215px;
-}
-
-.service-img {
-width:100px;
-height:auto;
-}
-</style>
-
-
-
-
-<div style="text-align:center;"><object data="{% static 'img/logo%20new.svg' %}" width="300" height="auto"> </object>
-     <div style="text-align:center;"><span id="clock"></span></div><br>
-                <p style="font-size: 36px;
+            <p style="font-size: 36px;
 text-align: center;
 font-weight: bold;
-color: black;">Tax Based Estimates</p> <br>
-</div>
+color: black;">Edit for {{invoice1.id}}</p> <br>
 
 
-
-   <script type="text/javascript">
-    var clockElement = document.getElementById('clock');
-
-    function clock() {
-        clockElement.textContent = new Date().toString();
-    }
-    setInterval(clock, 1000);
-</script>
-
-<form action="{% url 'invoice:invoice-list' %}" method="post">
-    {% csrf_token %}
-
-    <div class="card">
-        <header class="card-header">
+      <header class="card-header">
             <p class="card-header-title">
                 Estimate Generator v1 <br>&nbsp;
                 <div><button class="w3-btn w3-white w3-border w3-border-red w3-round-large">
                 <a href="{% url 'invoice:invoice-create' %}" class="has-text-white" style="font-size: 11px;
-font-weight: bold;">Create New Tax Based Estimate</a>
+font-weight: bold;">Create Tax Based Estimate</a>
                 </button></div>
            <div><button class="w3-btn w3-white w3-border w3-border-red w3-round-large"> <!--  <button class="button is-rounded is-info">-->
                 <a href="{% url 'invoice:invoice-create-2' %}" class="has-text-white" style="font-size: 11px;
-font-weight: bold;">Create New Non Tax Based Estimate</a>
+font-weight: bold;">Create Non Tax Based Estimate</a>
                 </button></div>
             <div><button class="w3-btn w3-white w3-border w3-border-red w3-round-large">
                 <a href="{% url 'invoice:invoice-list' %}" class="has-text-white" style="font-size: 11px;
@@ -320,9 +333,7 @@ font-weight: bold;">View Tax Estimates</a>
                 <a href="{% url 'invoice:invoice-list-2' %}" class="has-text-white" style="font-size: 11px;
 font-weight: bold;">View Non Tax Estimates</a>
                 </button></div>
-<!--                <div><button class="button is-rounded is-info">-->
-<!--                <a href="{% url 'invoice:invoice-list-2' %}" class="has-text-white">View Non Tax Estimates</a>-->
-<!--                </button></div>-->
+
 
 
             </p>
@@ -330,111 +341,41 @@ font-weight: bold;">View Non Tax Estimates</a>
 
         </header>
 
+<h1 style="font-size: 14px;
+font-weight: bold;
+color: black;
+text-align: center;">Customer ID: {{invoice1.id}}</h1>
+
+<form action="updaterecord/{{ invoice1.id }}" method="post">
+{% csrf_token %}
+    <p style="font-weight:bold;color:black;">Customer Name:</p>
+<input name="customername" value="{{ invoice1.customer }}">
+<br><br>
+<p style="font-weight:bold;color:black;">Bill Title:</p>
+<input name="billtitle" value="{{ invoice1.bill_title }}">
+<br><br>
+<p style="font-weight:bold;color:black;">Service Type:</p>
+    <input name="service_type" value="{{ invoice1.service_type }}">
+<br><br>
 
 
+<button class="w3-btn w3-white w3-border w3-border-red w3-round-large" type="submit" value="Submit">
+ <a  class="has-text-white" style="font-size: 11px;
+font-weight: bold;"><i class="material-icons">save</i></a>
+                </button>
+ <button class="w3-btn w3-white w3-border w3-border-red w3-round-large">
+                <a href="{% url 'invoice:invoice-list' %}" class="has-text-white" style="font-size: 11px;
+font-weight: bold;"><i class="material-icons">backspace</i></a>
+                </button>
 
-        <div class="card-content-edited">
-            <div class="content">
-
-                <table class="table is-fullwidth is-bordered is-hoverable is-striped" id="myTable">
-                    <tbody>
-                    <thead>
-                        <tr>
-                            <th></th>
-
-                            <th style="text-align:center;">CUSTOMER ID</th>
-                            <th style="text-align:center;">CUSTOMER NAME </th>
-                            <th style="text-align:center;">SERVICE TYPE</th>
-
-<!--                            <th>DATE</th>-->
-
-                            <th style="text-align:center;">GST(%)</th>
-                            <th style="text-align:center;">TOTAL <br>(excluded GST)</th>
-                            <th style="text-align:center;">TOTAL <br>(included GST)</th>
-
-                            <th style="text-align:center;">View</th>
-                            <th style="text-align:center;">Edit</th>
-                            <th style="text-align:center;color:red;">Delete</th>
-                            <th style="text-align:center;">Download</th>
-
-
-                        </tr>
-                    </thead>
-                    {% for invoice1 in invoices1 %}
-                    <tr>
-                        <td><input class="checkbox" type="checkbox" value="{{invoice1.id}}" name="invoice1_id" size="2" />
-                        </td>
-
-                        <td width="10%" style="text-align:center;font-weight:bold;">{{invoice1.id}}</td>
-                        <td width="39%" style="text-align:center;font-weight:bold;">{{invoice1.customer}}</td>
-                        <td width="39%" style="text-align:center;font-weight:bold;"><img class="service-img" src="{{invoice1.service}}"></td>
-
-<!--                        <td width="39%"> {{invoice1.date}}</td>-->
- <td style="text-align:center;font-weight:bold;">{{invoice1.gstpercentage}}%</td>
-
-                        <td style="text-align:center;font-weight:bold;">{{invoice1.currency}}<br>{{invoice1.total_amount}}</td>
-                         <td style="text-align:center;font-weight:bold;">{{invoice1.currency}}<br> {{invoice1.subtotal}}</td>
-                        <!--<td class="level-right">
-                            {% if invoice.get_status %}
-                            <a class="button is-small is-success" href="#">Paid</a>
-                            {% else %}
-                            <a class="button is-small is-warning" href="#">Not Paid</a>
-                            {% endif %}
-                        </td>-->
-                           <td width="1%">
-                            <a class="w3-btn w3-white w3-border w3-border-red w3-round-large" href="{% url 'invoice:invoice-detail' id=invoice1.id %}">
-<!--                                <a href="{% url 'invoice:invoice-detail' id=invoice1.id %}">-->
-                                <div style="font-weight:bold;font-size:10px;"><i class="material-icons">remove_red_eye</i></div>
-<!--                                <div class="button is-small is-info">View</div>-->
-                            </a>
-                        </td>   <td width="1%">
-                            <a class="w3-btn w3-white w3-border w3-border-red w3-round-large" href="{% url 'invoice:update' id=invoice1.id %}">
-                                <div style="font-weight:bold;font-size:10px;"><i class="material-icons">edit</i></div>
-                            </a>
-                        </td>
-
-                         <td width="1%">
-
-                            <a class="w3-btn w3-white w3-border w3-border-red w3-round-large" href="{% url 'invoice:invoice-delete' id=invoice1.id %}">
-
-                                <div style="font-weight:bold;font-size:10px;color:red;"><i class="material-icons">delete_forever</i></div>
-                            </a>
-
-
-                        </td>
-
-
-
-                        <td width="1%">
-                            <a class="w3-btn w3-white w3-border w3-border-red w3-round-large" href="{% url 'invoice:invoice-download' id=invoice1.id %}">
-                                <div style="font-weight:bold;font-size:10px;"><i class="material-icons">file_download</i></div>
-                            </a>
-                        </td>
-                    </tr>
-                    {% endfor %}
-
-                    </tbody>
-                </table>
-
-            </div>
-        </div>
-    </div><br /><br /><br />
-    <!--<div class="card has-background-white-ter">
-        <header class="card-header">
-            <p class="card-header-title">
-                Change Order Status
-            </p>
-        </header>
-        <div class="card-content">
-            <div class="select is-rounded">
-                <select id="status" name="status">
-                    <option value="1">Paid</option>
-                    <option value="0">Not Paid</option>
-                </select>
-            </div>
-            <input class="button  is-info is-rounded" type="submit" class="btn" value="Change Status" name="mybtn">
-        </div>
-    </div>-->
 </form>
 
-{% endblock content %}
+
+        </div>
+    </div>
+</section>
+{% endblock %}
+{% block custom_js %}
+
+<br>
+{% endblock %}

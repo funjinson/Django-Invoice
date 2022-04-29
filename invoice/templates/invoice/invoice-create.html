@@ -9,7 +9,7 @@
     <div class="container">
         <div class="card white-ter">
             <div style="text-align:center;"> <object data="{% static 'img/logo%20new.svg' %}" width="300" height="auto"> </object></div>
- <div style="text-align:center;"><span id="clock"></span></div><br>
+ <div style="text-align:center;"><span id="clock"></span></div>
 
 <style>
     .styled {
@@ -509,14 +509,42 @@ function show4(){
                     <div class="columns is-centered">
                         <div class="column is-one-third">
                            <label class="label">Service Type:</label>
+
+
+
+<style>
+
+
+input[type=radio]:checked + label>img {
+  border: 1px solid #fff;
+  box-shadow: 0 0 3px 3px #090;
+}
+
+/* Stuff after this is only to make things more pretty */
+input[type=radio] + label>img {
+
+    width: 69px;
+    height: 53px;
+  transition: 500ms all;
+}
+
+input[type=radio]:checked + label>img {
+  transform:
+<!--  rotateZ(-10deg);
+  rotateX(10deg);-->
+}
+
+</style>
+
+
   <input type="radio" checked id="AproRigs" name="service" value="https://www.aprorigs.com/wp-content/uploads/2021/11/logo3.png"   onclick="show1();">
-  <label  for="AproRigs">Apro Rigs</label><br>
+  <label  for="AproRigs"><!--Apro Rigs--><img src="{% static "img/logos/apro rigs.png" %}" title="APRO RIGS"/></label>
   <input type="radio" id="AproITSolutions" name="service" value="https://aproitsolutions.com/wp-content/uploads/2019/07/apro-logo-for-web-new-dark-1.png" onclick="show2();">
-  <label for="AproITSolutions">Apro IT Solutions</label><br>
+  <label for="AproITSolutions"><!--Apro IT Solutions--> <img src="{% static "img/logos/apro it solution.png" %}" title="APRO IT SOLUTIONS" /></label>
   <input type="radio" id="AproHosting" name="service" value="https://aprohosting.com/wp-content/uploads/2021/11/logo-02.png" onclick="show4();">
-  <label  for="AproHosting">Apro Hosting</label><br>
+  <label  for="AproHosting"><!--Apro Hosting--> <img src="{% static "img/logos/apro hosting.png" %}" title="APRO HOSTING" /></label>
   <input type="radio" id="AproCMS" name="service" value="https://t4.ftcdn.net/jpg/04/40/92/73/360_F_440927381_ljaelLw3fiAaM7baJB4kqN6BHCguhJ0l.jpg" onclick="show3();">
-  <label  for="AproCMS">Apro CMS</label>
+  <label  for="AproCMS"><!--Apro CMS --><img src="{% static "img/logos/cms.png" %}" title="APRO CMS" /></label>
                         </div>
                         <div class="column is-one-third">
                             {{form.customer|bulma}}
@@ -601,7 +629,12 @@ function show4(){
                             <div id="aprocmsimage">  <img src="{% static "img/logos/cms.png" %}" style="height: 100px;width: 200px;" />     </div>
                         </div>
 
+
+
+
                         <div class="column is-one-third">
+
+
                         </div>
 
                     </div>
