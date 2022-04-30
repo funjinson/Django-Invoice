@@ -381,9 +381,9 @@ def generate_PDF1(request, id):
         'margin-bottom': '0.00in',
         'margin-left': '0.00in',
         'encoding': "UTF-8",
-        'custom-header': [
-            ('Accept-Encoding', 'gzip') ],
 
+        'custom-header': [
+        ('Accept-Encoding', 'gzip') ],
         'no-outline': None
     }
 
@@ -394,10 +394,18 @@ def generate_PDF1(request, id):
     response['Content-Disposition'] = 'attachment; filename="pdf.pdf"'
     return response
 
+def render_to_pdf(template_src, context_dict={}):
+    template = get_template(template_src)
+    html  = template.render(context_dict)
+    result = BytesIO()
+    pdf = pisa.pisaDocument(BytesIO(html.encode("ISO-8859-1")), result)
+    if not pdf.err:
+        return HttpResponse(result.getvalue(), content_type='application/pdf')
+    return None
 
 def generate_PDF2(request, id):
     options = {
-        'page-size': 'A4',
+        'page-size': 'B4',
         'margin-top': '0.00in',
         'margin-right': '0.00in',
         'margin-bottom': '0.00in',
