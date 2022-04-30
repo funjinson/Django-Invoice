@@ -302,7 +302,7 @@ color: black;">Tax Based Estimates</p> <br>
     {% csrf_token %}
 
     <div class="card">
-        <header class="card-header" style="display:block-ruby;">
+        <header class="card-header">
             <p class="card-header-title">
                 Estimate Generator v1 <br>&nbsp;
                 <div style="padding:10px;"><button class="w3-btn w3-white w3-border w3-border-red w3-round-large">
@@ -336,37 +336,30 @@ font-weight: bold;">View Non Tax Estimates</a>
 
 
          <header class="card-header" >
-  <p class="card-header-title">
-                <br>&nbsp;
 
-           <div style="padding:10px;"><button  class="w3-btn w3-white w3-border w3-border-red w3-round-large"> <!--  <button class="button is-rounded is-info">-->
-                <a href="{% url 'invoice:invoice-list-date-negative' %}" class="has-text-white" style="font-size: 11px;
-font-weight: bold;">Filter by Date (+)</a>
-                </button></div>
-             <div style="padding:10px;"><button  class="w3-btn w3-white w3-border w3-border-red w3-round-large"> <!--  <button class="button is-rounded is-info">-->
-                <a href="{% url 'invoice:invoice-list-date-positive' %}" class="has-text-white" style="font-size: 11px;
-font-weight: bold;">Filter by Date (-)</a>
-                </button></div>
-
-     <div style="padding:10px;"><button class="w3-btn w3-white w3-border w3-border-red w3-round-large">
+                <div style="padding:10px;"><button class="w3-btn w3-white w3-border w3-border-red w3-round-large">
                 <a href="#" class="has-text-white" style="font-size: 11px;
 font-weight: bold;">Search</a>
                 </button></div>
-
-
-         <div style="padding:10px;"><button class="w3-btn w3-white w3-border w3-border-red w3-round-large">
-                <a href="/admin" class="has-text-white" style="font-size: 11px;
-font-weight: bold;">Admin Panel</a>
+           <div style="padding:10px;"><button  class="w3-btn w3-white w3-border w3-border-red w3-round-large"> <!--  <button class="button is-rounded is-info">-->
+                <a href="#" class="has-text-white" style="font-size: 11px;
+font-weight: bold;">Filter by Date (+)</a>
+                </button></div>
+             <div style="padding:10px;"><button  class="w3-btn w3-white w3-border w3-border-red w3-round-large"> <!--  <button class="button is-rounded is-info">-->
+                <a href="#" class="has-text-white" style="font-size: 11px;
+font-weight: bold;">Filter by Date (-)</a>
                 </button></div>
 
-       <div style="padding:10px;"><button class="w3-btn w3-white w3-border w3-border-red w3-round-large">
+            <div style="padding:10px;"><button class="w3-btn w3-white w3-border w3-border-red w3-round-large">
                 <a href="{% url 'invoice:export' %}" class="has-text-white" style="font-size: 11px;
 font-weight: bold;">Export As CSV</a>
                 </button></div>
-   <div style="padding:10px;"><button class="w3-btn w3-white w3-border w3-border-red w3-round-large">
-                <a href="{% url 'invoice:export' %}" class="has-text-white" style="font-size: 11px;
-font-weight: bold;">Export As PDF</a>
+            <div style="padding:10px;"><button class="w3-btn w3-white w3-border w3-border-red w3-round-large">
+                <a href="#" class="has-text-white" style="font-size: 11px;
+font-weight: bold;">Back Up</a>
                 </button></div>
+
+
 <!--                <div><button class="button is-rounded is-info">-->
 <!--                <a href="{% url 'invoice:invoice-list-2' %}" class="has-text-white">View Non Tax Estimates</a>-->
 <!--                </button></div>-->
@@ -377,7 +370,30 @@ font-weight: bold;">Export As PDF</a>
 
         </header>
 
+          <header class="card-header" style="display:none;">
 
+
+
+
+     <div style="padding:10px;"><button class="w3-btn w3-white w3-border w3-border-red w3-round-large">
+                <a href="#" class="has-text-white" style="font-size: 11px;
+font-weight: bold;">CSV</a>
+                </button></div>
+           <div style="padding:10px;"><button class="w3-btn w3-white w3-border w3-border-red w3-round-large"> <!--  <button class="button is-rounded is-info">-->
+                <a href="#" class="has-text-white" style="font-size: 11px;
+font-weight: bold;">PDF</a>
+                </button></div>
+            <div style="padding:10px;"><button class="w3-btn w3-white w3-border w3-border-red w3-round-large">
+                <a href="#" class="has-text-white" style="font-size: 11px;
+font-weight: bold;">SQL</a>
+                </button></div>
+            <div style="padding:10px;"><button class="w3-btn w3-white w3-border w3-border-red w3-round-large">
+                <a href="#" class="has-text-white" style="font-size: 11px;
+font-weight: bold;">DOC</a>
+                </button></div>
+
+
+        </header>
 
 <style>
     table tr:nth-child(odd) td{

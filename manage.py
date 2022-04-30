@@ -4,6 +4,10 @@ import os
 import sys
 
 
+from django.core.management.commands.runserver import Command as runserver
+
+
+
 def main():
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
     try:
@@ -16,6 +20,7 @@ def main():
         ) from exc
     execute_from_command_line(sys.argv)
 
-
+"""RUN PORT 8585"""
+runserver.default_port = "8585"
 if __name__ == '__main__':
     main()

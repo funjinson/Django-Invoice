@@ -56,6 +56,49 @@ class InvoiceListView1(View):
         return redirect('invoice:invoice-list')
 
 
+
+class InvoiceListView1datenegative(View):
+    def get(self, *args, **kwargs):
+        invoices1 = Invoice1.objects.all().order_by('-date')
+        context = {
+            "invoices1": invoices1,
+        }
+
+        return render(self.request, 'invoice/invoice-list-date-negative.html', context)
+
+    def post(self, request):
+        # import pdb;pdb.set_trace()
+        invoice1_ids = request.POST.getlist("invoice2_id")
+        invoice1_ids = list(map(int, invoice1_ids))
+
+        invoices1 = Invoice1.objects.filter(id__in=invoice1_ids)
+        # import pdb;pdb.set_trace()
+
+        return redirect('invoice:invoice-list-date-negative')
+
+
+class InvoiceListView1datepositive(View):
+    def get(self, *args, **kwargs):
+        invoices1 = Invoice1.objects.all().order_by('date')
+        context = {
+            "invoices1": invoices1,
+        }
+
+        return render(self.request, 'invoice/invoice-list-date-positive.html', context)
+
+    def post(self, request):
+        # import pdb;pdb.set_trace()
+        invoice1_ids = request.POST.getlist("invoice2_id")
+        invoice1_ids = list(map(int, invoice1_ids))
+
+        invoices1 = Invoice1.objects.filter(id__in=invoice1_ids)
+        # import pdb;pdb.set_trace()
+
+        return redirect('invoice:invoice-list-date-positive')
+
+
+
+@login_required(login_url='/admin/login/?next=/admin/')
 def createInvoice1(request):
     """
     Invoice Generator page it will have Functionality to create new invoices, 
@@ -332,7 +375,7 @@ def view_PDF2(request, id=None):
 
 def generate_PDF1(request, id):
     options = {
-
+'page-size': 'A4',
         'margin-top': '0.00in',
         'margin-right': '0.00in',
         'margin-bottom': '0.00in',
@@ -344,7 +387,7 @@ def generate_PDF1(request, id):
         'no-outline': None
     }
 
-    pdf = pdfkit.from_url(request.build_absolute_uri(reverse('invoice:invoice-detail', args=[id])), True,
+    pdf = pdfkit.from_url(request.build_absolute_uri(reverse('invoice:invoice-detail', args=[id])), False,
                           options=options)
     response = HttpResponse(pdf, content_type='application/pdf')
 
@@ -354,7 +397,7 @@ def generate_PDF1(request, id):
 
 def generate_PDF2(request, id):
     options = {
-        'page-size': 'a4',
+        'page-size': 'A4',
         'margin-top': '0.00in',
         'margin-right': '0.00in',
         'margin-bottom': '0.00in',
@@ -421,13 +464,9 @@ def updaterecord1(request, id):
 
 def export(request):
     response = HttpResponse(content_type='text/csv')
-
     writer = csv.writer(response)
     writer.writerow(['id', 'customer', 'date', 'service_type','bill_title','total_amount','termsandconditions'])
-
     for customers in Invoice1.objects.all().values_list('id', 'customer', 'date', 'service_type','bill_title','total_amount','termsandconditions'):
         writer.writerow(customers)
-
-    response['Content-Disposition'] = 'attachment; filename="members.csv"'
-
+    response['Content-Disposition'] = 'attachment; filename="Customers.csv"'
     return response

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from .views import InvoiceListView1, createInvoice1, generate_PDF1, view_PDF1,update1,updaterecord1,deleteInvoice1
+from .views import InvoiceListView1, createInvoice1, generate_PDF1, view_PDF1,update1,updaterecord1,deleteInvoice1, InvoiceListView1datenegative , InvoiceListView1datepositive
 from .views import InvoiceListView2, createInvoice2, generate_PDF2, view_PDF2,deleteInvoice2
 from django.conf.urls import include
 from .views import export
@@ -11,6 +11,8 @@ app_name = 'invoice'
 
 urlpatterns = [
     path('', InvoiceListView1.as_view(), name="invoice-list"),
+    path('invoicefilterdatenegative', InvoiceListView1datenegative.as_view(), name="invoice-list-date-negative"),
+    path('invoicefilterdatepositive', InvoiceListView1datepositive.as_view(), name="invoice-list-date-positive"),
     path('invoicelist', InvoiceListView2.as_view(), name="invoice-list-2"),
 
 
