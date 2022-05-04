@@ -121,15 +121,15 @@ def createInvoice1(request):
         
 
 
-        if servicea == 'https://www.aprorigs.com/wp-content/uploads/2021/11/logo3.png':
+        if servicea == 'http://apropack.com/assets/apro-rigs.svg':
             terms1 = form.data["termsandconditionsaprorigs"]
             additionalnotes = form.data["fulldescriptionrigs"]
 
-        elif servicea == 'https://aproitsolutions.com/wp-content/uploads/2019/07/apro-logo-for-web-new-dark-1.png':
+        elif servicea == 'http://apropack.com/assets/apro-it.svg':
             terms1 = form.data["termsandconditionsaproitsolutions"]
             additionalnotes = form.data["fulldescriptionit"]
 
-        elif servicea == 'https://aprohosting.com/wp-content/uploads/2021/11/logo-02.png':
+        elif servicea == 'http://apropack.com/assets/apro-hosting.svg':
             terms1 = form.data["termsandconditionsaprohosting"]
             additionalnotes = form.data["fulldescriptionaprohosting"]
 
