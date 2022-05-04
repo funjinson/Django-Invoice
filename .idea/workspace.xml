@@ -5,10 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="386e9238-49fa-4d0a-af3e-9e2b6bba8cb5" name="Changes" comment="TODAY">
-      <change afterPath="$PROJECT_DIR$/db.sqlite3-journal" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/invoice/templates/invoice/edittaxcustomers.html" beforeDir="false" afterPath="$PROJECT_DIR$/invoice/templates/invoice/edittaxcustomers.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/invoice/templates/invoice/invoice-create.html" beforeDir="false" afterPath="$PROJECT_DIR$/invoice/templates/invoice/invoice-create.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/invoice/templates/invoice/invoice-list-date-negative.html" beforeDir="false" afterPath="$PROJECT_DIR$/invoice/templates/invoice/invoice-list-date-negative.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/invoice/templates/invoice/invoice-list-date-positive.html" beforeDir="false" afterPath="$PROJECT_DIR$/invoice/templates/invoice/invoice-list-date-positive.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/invoice/templates/invoice/invoice-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/invoice/templates/invoice/invoice-list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
